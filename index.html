@@ -8,7 +8,57 @@
 	 <title>Bootstrap Test</title>
 </head>
 <body>
+	<div class='container'>
+		<div class='row'>
+			<div class='col'>
+				<form class='my-4'>
+					<h3 class='text-center'>Minor Chord Progression Generator.</h3>
+					<div class='form-row my-3 justify-content-center'>
+						<div class='col-auto align-self-center'>
+							<label for='numChordsSelect'>Number of Chords:</label>
+						</div>
+						<div class='col-auto'>
+							<select class='form-control' id='numChordsSelect'>
+								<option>3</option>
+								<option selected>4</option>
+							</select>
+						</div>
+					</div>
+					<div class='form-row my-3 justify-content-center'>
+						<div class='col-auto align-self-center'>
+							<label for='numOctaveSelect'>Preview Octave:</label>
+						</div>
+						<div class='col-auto'>
+							<select class='form-control' id='numOctaveSelect'>
+								<option>2</option>
+								<option selected>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+							</select>
+						</div>
+					</div>
+					<div class='form-row justify-content-center'>
+						<div class='col-auto my-3'>
+							<button class='btn'>Generate</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 
+
+		<div class='row'>
+			<div class='col-auto mx-auto'>
+				<h1 class='font-weight-bold'>
+					Cm: C, Eb, G, Bb<br/>
+					Fm: F, Ab, C, Eb<br/>
+					C: C, Eb, G, Bb<br/>
+					Gm: G, Bb, D, F
+				</h1>
+			</div>
+		</div>
+	</div>
 	<script src='jquery.min.js'></script>
 </body>
 </html>
