@@ -1,5 +1,8 @@
-$color1: #82E0A2;
-$color2: #386146;
+// $color1: #82E0A2;
+// $color2: #386146;
+
+$color1: #B9B5FF;
+$color2: #3F3C75;
 
 html, body
 {
@@ -11,13 +14,16 @@ html, body
 .btn
 {
 	background-color: $color2;
-	color: $color1;
+	color: $color1 !important;
+	outline: none !important;
+	box-shadow: none !important;
 }
 
 .form-control-sm
 {
-	background-color: $color2;
-	color: $color1;
+	background-color: $color2 !important;
+	color: $color1 !important;
+	border: 0;
 }
 
 #maintext
