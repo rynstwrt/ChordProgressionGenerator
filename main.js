@@ -264,10 +264,18 @@ async function generate(repeat)
 	$('#maintext').text(text);
 }
 
-$('#generatebutton').click(async () => {
+$('#generatebutton').click(async () =>
+{
 	generate(false);
 });
 
-$('#replaybutton').click(async () => {
+$('body').keypress((e) =>
+{
+	if (e.charCode === 32)
+		generate(false);
+});
+
+$('#replaybutton').click(async () =>
+{
 	generate(true);
 });
