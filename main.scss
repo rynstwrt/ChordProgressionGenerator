@@ -12,3 +12,9 @@ html, body
 	background-color: $color2;
 	color: $color1;
 }
+
+#maintext
+{
+	border: 5px solid $color2;
+	line-height: 4rem;
+}
