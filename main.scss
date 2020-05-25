@@ -26,3 +26,39 @@ html, body
 	line-height: 4rem;
 	white-space: pre;
 }
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px)
+{
+	#headertext
+	{
+		font-size: 2rem;
+	}
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px)
+{
+	#headertext
+	{
+		font-size: 2.5rem;
+	}
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px)
+{
+	#headertext
+	{
+		font-size: 3rem;
+	}
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px)
+{
+	#headertext
+	{
+		font-size: 3.5rem;
+	}
+}
