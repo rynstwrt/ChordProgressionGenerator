@@ -1,3 +1,3 @@
-# MinorChordProgressionGenerator
+# ChordProgressionGenerator
  
 https://rynstwrt.github.io/ChordProgressionGenerator/
