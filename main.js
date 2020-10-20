@@ -232,19 +232,18 @@ function convertChordsToOctaveChords(chord, octave)
 	return chord.notes.map((x) => x = x + octave);
 }
 
-
 let progression;
 async function generate(repeat)
 {
 	await Tone.start();
-	const synth = new Tone.PolySynth(3, Tone.Synth).toMaster();
+	const synth = new Tone.PolySynth().toDestination();
 
-	const numChords = $('#numChordsSelect')[0].value;
+	const numChords = $('#numchordselector')[0].value;
 	if (!repeat)
-		progression = ($('#majorMinorSelect')[0].value === 'Major') ? getMajorProgression(numChords) : getMinorProgression(numChords);
+		progression = ($('#majorminorselector')[0].value === 'Major') ? getMajorProgression(numChords) : getMinorProgression(numChords);
 	const seq = new Tone.Sequence((time, chord) =>
 	{
-		const octave = $('#numOctaveSelect')[0].value;
+		const octave = $('#octaveselector')[0].value;
 		synth.triggerAttackRelease(convertChordsToOctaveChords(chord, octave), '4n');
 	}, progression, '4n');
 
@@ -261,7 +260,7 @@ async function generate(repeat)
 		text += chord.notes.join(', ');
 		text += '\r\n';
 	}
-	$('#maintext').text(text);
+	$('#outputtext h1').text(text);
 }
 
 $('#generatebutton').click(async () =>
