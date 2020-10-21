@@ -233,17 +233,22 @@ function convertChordsToOctaveChords(chord, octave)
 }
 
 let progression;
-async function generate(repeat)
+function getProgression(isRepeat, numChords, isMajor)
+{
+	if (isRepeat)
+		return progression;
+
+	progression = isMajor ? getMajorProgression(numChords) : getMinorProgression(numChords);
+	return progression;
+}
+
+async function makeTones(progression, octave)
 {
 	await Tone.start();
 	const synth = new Tone.PolySynth().toDestination();
 
-	const numChords = $('#numchordsselector')[0].value;
-	if (!repeat)
-		progression = ($('#majorminorselector')[0].value === 'Major') ? getMajorProgression(numChords) : getMinorProgression(numChords);
 	const seq = new Tone.Sequence((time, chord) =>
 	{
-		const octave = $('#octaveselector')[0].value;
 		synth.triggerAttackRelease(convertChordsToOctaveChords(chord, octave), '4n');
 	}, progression, '4n');
 
@@ -251,17 +256,29 @@ async function generate(repeat)
 	seq.start();
 	Tone.Transport.start();
 
+}
+
+function generate(isRepeat)
+{
+	const numChords = $('#numchordsselector')[0].value;
+	const previewOctave = $('#octaveselector')[0].value;
+	const majorOrMinor = $('#majorminorselector')[0].value;
+	const progression = getProgression(isRepeat, numChords, (majorOrMinor === 'Major'));
+
 	let text = '';
 	for (let i = 0; i < progression.length; ++i)
 	{
 		const chord = progression[i];
+		text += '<strong><u>';
 		text += chord.name;
+		text += '</u></strong>';
 		text += ': ';
 		text += chord.notes.join(', ');
 		text += '\r\n';
 	}
-	console.log(text);
-	$('#outputtext h1').text(text);
+	$('#viewbox h1').html(text);
+
+	makeTones(progression, previewOctave);
 }
 
 $('#generatebutton').click(async () =>

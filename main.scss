@@ -1,65 +1,66 @@
 $backgroundcolor: #002e5b;
 $maincolor: #7eebae;
-
-*
-{
-	box-sizing: border-box;
-}
+$accentcolor: #57c688;
 
 body
 {
-	background-color: $backgroundcolor;
-	color: $maincolor;
-}
-
-section
-{
 	background-color: $maincolor;
 	color: $backgroundcolor;
-	padding: 2rem 0;
+}
 
-	p
+p
+{
+	font-size: 1.3rem;
+	text-transform: lowercase;
+	font-variant: small-caps;
+}
+
+select
+{
+	background-color: transparent !important;
+	color: $backgroundcolor !important;
+	padding: 0 .5rem;
+	border: 0 !important;
+	border-bottom: 1px solid $backgroundcolor !important;
+	border-radius: 3px !important;
+
+	option
 	{
-		white-space: pre;
-	}
-
-	select
-	{
-		background-color: transparent !important;
-		color: $backgroundcolor !important;
-		border: 0 !important;
-		border-bottom: 1px solid $backgroundcolor !important;
-		border-radius: 3px !important;
-
-		option
-		{
-			background-color: $maincolor;
-			color: $backgroundcolor;
-
-		}
-	}
-
-	.btn
-	{
-		background-color: $backgroundcolor;
-		color: $maincolor;
-		width: 100px;
+		background-color: $maincolor;
+		color: $backgroundcolor;
 	}
 }
 
+.col-auto
+{
+	padding: 0 .5rem;
+}
 
-#outputtext
+.btn
 {
 	background-color: $backgroundcolor;
 	color: $maincolor;
-	border: 1rem solid $maincolor;
+	$size: 55px;
+	width: $size;
+	height: $size;
+	border: 3px solid $accentcolor;
+	border-radius: 50%;
+}
+
+#viewbox
+{
+	background-color: $backgroundcolor;
+	color: $maincolor;
+	border: 5px solid $accentcolor;
+	border-radius: 5px;
+	box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, .7);
+	overflow-x: hidden;
+	overflow-y: scroll;
 
 	h1
 	{
-		width: 100%;
 		white-space: pre;
-		line-height: 4rem;
-		border: 1rem solid $backgroundcolor;
 		font-size: 2rem;
+		line-height: 4rem;
 	}
 }

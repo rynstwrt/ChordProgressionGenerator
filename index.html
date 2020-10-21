@@ -7,91 +7,73 @@
 	<link rel='stylesheet' href='main.min.css' />
 	<title>Chord Progression Generator</title>
 </head>
-<body class='d-flex flex-column' style='height: 100vh;'>
-
-	<section class='container-fluid'>
-		<div class='row'>
-
-
-			<div class='col'></div>
-			<div class='col-auto'>
-				<p>Number of Chords:</p>
+<body style='height: 100vh;'>
+	<div class='container-fluid h-100'>
+		<div class='row h-100 flex-column'>
+			<!-- View Box -->
+			<div class='col-sm-6 mt-3' style='min-height: 50%; max-height: 50%;'>
+				<div id='viewbox' class='h-100 d-flex justify-content-center p-4'>
+					<h1 class='text-center'></h1>
+				</div>
 			</div>
-			<div class='col-auto'>
-				<select id='numchordsselector' class='custom-select'>
-					<option>3</option>
-                    <option selected>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-				</select>
+			<!-- Inputs and Buttons-->
+			<div class='col-sm-6 flex-fill d-flex flex-column justify-content-center px-4'>
+				<!-- Number of Chords -->
+				<div class='row align-items-center'>
+					<div class='col-auto'><p>Number of Chords:</p></div>
+					<div class='col-auto'>
+						<select id='numchordsselector'>
+							<option>3</option>
+							<option selected>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+						</select>
+					</div>
+				</div>
+				<!-- Octave -->
+				<div class='row align-items-center'>
+					<div class='col-auto'><p>Preview Octave:</p></div>
+					<div class='col-auto'>
+						<select id='octaveselector'>
+							<option>2</option>
+	                        <option>3</option>
+	                        <option selected>4</option>
+	                        <option>5</option>
+	                        <option>6</option>
+						</select>
+					</div>
+				</div>
+				<!-- Major / Minor -->
+				<div class='row align-items-center'>
+					<div class='col-auto'><p>Major / Minor:</p></div>
+					<div class='col-auto'>
+						<select id='majorminorselector'>
+							<option selected>Major</option>
+							<option>Minor</option>
+						</select>
+					</div>
+				</div>
+				<!-- Replay Button -->
+				<div class='row align-items-center'>
+					<div class='col'></div>
+					<div class='col-auto'><p>Replay</p></div>
+					<div class='col-auto'>
+						<button id='replaybutton' class='btn'></button>
+					</div>
+				</div>
+				<!-- Generate Button -->
+				<div class='row mb-3 mr-1 align-items-center'>
+					<div class='col'></div>
+					<div class='col-auto'><p>Generate</p></div>
+					<div class='col-auto'>
+						<button id='generatebutton' class='btn'></button>
+					</div>
+					<div class='col-2'></div>
+				</div>
 			</div>
-			<div class='col'></div>
-			<div class='py-1 w-100'></div>
-
-
-
-
-			<div class='col'></div>
-			<div class='col-auto'>
-				<p>Octave:</p>
-			</div>
-			<div class='col-auto'>
-				<select id='octaveselector' class='custom-select'>
-					<option>2</option>
-                    <option>3</option>
-                    <option selected>4</option>
-                    <option>5</option>
-                    <option>6</option>
-				</select>
-			</div>
-			<div class='col'></div>
-			<div class='py-1 w-100'></div>
-
-
-
-
-			<div class='col'></div>
-			<div class='col-auto'>
-				<p>Major / Minor:</p>
-			</div>
-			<div class='col-auto'>
-				<select id='majorminorselector' class='custom-select'>
-					<option>Major</option>
-					<option>Minor</option>
-				</select>
-			</div>
-			<div class='col'></div>
-			<div class='py-1 w-100'></div>
-
-
-
-
-
-
-			<div class='col'></div>
-			<div class='col-auto'>
-				<button id='generatebutton' class='btn'>Generate</button>
-			</div>
-			<div class='col-auto'>
-				<button id='replaybutton' class='btn'>Replay</button>
-			</div>
-			<div class='col'></div>
-			<div class='w-100'></div>
-
 		</div>
-	</section>
-
-
-	<div id='outputtext' class='d-flex justify-content-center align-items-center h-100'>
-		<h1 class='text-center'></h1>
 	</div>
-
-
-
-
-
 	<script src='jquery.min.js'></script>
 	<script src='bootstrap/js/bootstrap.bundle.min.js'></script>
 	<script src='Tone.js'></script>
