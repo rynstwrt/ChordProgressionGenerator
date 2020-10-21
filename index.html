@@ -7,64 +7,89 @@
 	<link rel='stylesheet' href='main.min.css' />
 	<title>Chord Progression Generator</title>
 </head>
-<body class='d-flex flex-colum justify-content-center align-items-center' style='height: 100vh;'>
+<body class='d-flex flex-column' style='height: 100vh;'>
+
+	<section class='container-fluid'>
+		<div class='row'>
 
 
-	<div>
-		<div class='container-fluid'>
-			<div class='row'>
-				<div class='col'>
-					<h1 class='text-center'>Chord Progression Generator</h1>
-				</div>
+			<div class='col'></div>
+			<div class='col-auto'>
+				<p>Number of Chords:</p>
 			</div>
+			<div class='col-auto'>
+				<select id='numchordsselector' class='custom-select'>
+					<option>3</option>
+                    <option selected>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+				</select>
+			</div>
+			<div class='col'></div>
+			<div class='py-1 w-100'></div>
+
+
+
+
+			<div class='col'></div>
+			<div class='col-auto'>
+				<p>Octave:</p>
+			</div>
+			<div class='col-auto'>
+				<select id='octaveselector' class='custom-select'>
+					<option>2</option>
+                    <option>3</option>
+                    <option selected>4</option>
+                    <option>5</option>
+                    <option>6</option>
+				</select>
+			</div>
+			<div class='col'></div>
+			<div class='py-1 w-100'></div>
+
+
+
+
+			<div class='col'></div>
+			<div class='col-auto'>
+				<p>Major / Minor:</p>
+			</div>
+			<div class='col-auto'>
+				<select id='majorminorselector' class='custom-select'>
+					<option>Major</option>
+					<option>Minor</option>
+				</select>
+			</div>
+			<div class='col'></div>
+			<div class='py-1 w-100'></div>
+
+
+
+
+
+
+			<div class='col'></div>
+			<div class='col-auto'>
+				<button id='generatebutton' class='btn'>Generate</button>
+			</div>
+			<div class='col-auto'>
+				<button id='replaybutton' class='btn'>Replay</button>
+			</div>
+			<div class='col'></div>
+			<div class='w-100'></div>
+
 		</div>
-		<div class='container-fluid'>
-			<div class='row'>
-
-				<div class='col'></div>
-				<div class='col-auto'>
-					<p>Number of Chords:</p>
-				</div>
-				<div class='col-auto'>
-					<select class='custom-select'>
-						<option>2</option>
-					</select>
-				</div>
-				<div class='col'></div>
-			</div>
-
-			<div class='row'>
-				<div class='col'></div>
-				<div class='col-auto'>
-					<p>Octave:</p>
-				</div>
-				<div class='col-auto'>
-					<select class='custom-select'>
-						<option>2</option>
-					</select>
-				</div>
-				<div class='col'></div>
-			</div>
-
-			<div class='row'>
-				<div class='col'></div>
-				<div class='col-auto'>
-					<p>Major / Minor:</p>
-				</div>
-				<div class='col-auto'>
-					<select class='custom-select'>
-						<option>Major</option>
-					</select>
-				</div>
-				<div class='col'></div>
-			</div>
+	</section>
 
 
-
-
-			</div>
-		</div>
+	<div id='outputtext' class='d-flex justify-content-center align-items-center h-100'>
+		<h1 class='text-center'></h1>
 	</div>
+
+
+
 
 
 	<script src='jquery.min.js'></script>
