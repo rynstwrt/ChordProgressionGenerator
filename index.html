@@ -1,15 +1,74 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-	 <meta charset='utf-8' />
-	 <meta name='viewport' content='width=device-width, initial-scale=1' />
-	 <link rel='stylesheet' href='main.min.css' />
-	 <title>Chord Progression Generator</title>
+	<meta charset='utf-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<link rel='stylesheet' href='bootstrap/css/bootstrap.min.css' />
+	<link rel='stylesheet' href='main.min.css' />
+	<title>Chord Progression Generator</title>
 </head>
-<body>
+<body class='d-flex flex-colum justify-content-center align-items-center' style='height: 100vh;'>
+
+
+	<div>
+		<div class='container-fluid'>
+			<div class='row'>
+				<div class='col'>
+					<h1 class='text-center'>Chord Progression Generator</h1>
+				</div>
+			</div>
+		</div>
+		<div class='container-fluid'>
+			<div class='row'>
+
+				<div class='col'></div>
+				<div class='col-auto'>
+					<p>Number of Chords:</p>
+				</div>
+				<div class='col-auto'>
+					<select class='custom-select'>
+						<option>2</option>
+					</select>
+				</div>
+				<div class='col'></div>
+			</div>
+
+			<div class='row'>
+				<div class='col'></div>
+				<div class='col-auto'>
+					<p>Octave:</p>
+				</div>
+				<div class='col-auto'>
+					<select class='custom-select'>
+						<option>2</option>
+					</select>
+				</div>
+				<div class='col'></div>
+			</div>
+
+			<div class='row'>
+				<div class='col'></div>
+				<div class='col-auto'>
+					<p>Major / Minor:</p>
+				</div>
+				<div class='col-auto'>
+					<select class='custom-select'>
+						<option>Major</option>
+					</select>
+				</div>
+				<div class='col'></div>
+			</div>
 
 
 
+
+			</div>
+		</div>
+	</div>
+
+
+	<script src='jquery.min.js'></script>
+	<script src='bootstrap/js/bootstrap.bundle.min.js'></script>
 	<script src='Tone.js'></script>
 	<script src='main.js'></script>
 </body>

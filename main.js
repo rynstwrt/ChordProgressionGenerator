@@ -238,7 +238,7 @@ async function generate(repeat)
 	await Tone.start();
 	const synth = new Tone.PolySynth().toDestination();
 
-	const numChords = $('#numchordselector')[0].value;
+	const numChords = $('#numchordsselector')[0].value;
 	if (!repeat)
 		progression = ($('#majorminorselector')[0].value === 'Major') ? getMajorProgression(numChords) : getMinorProgression(numChords);
 	const seq = new Tone.Sequence((time, chord) =>
@@ -260,6 +260,7 @@ async function generate(repeat)
 		text += chord.notes.join(', ');
 		text += '\r\n';
 	}
+	console.log(text);
 	$('#outputtext h1').text(text);
 }
 

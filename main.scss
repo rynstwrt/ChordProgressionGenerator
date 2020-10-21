@@ -1,5 +1,5 @@
-$backgroundcolor: #7eebae;
-$maincolor: #002e5b;
+$backgroundcolor: #002e5b;
+$maincolor: #7eebae;
 
 body
 {
@@ -7,45 +7,56 @@ body
 	color: $maincolor;
 }
 
-p
-{
-	display: inline;
-	font-size: 1.1rem;
-}
-
-select
-{
-	background-color: $maincolor !important;
-	color: $backgroundcolor !important;
-	width: 90px !important;
-}
-
-.col
-{
-	padding: 5px;
-}
-
-.btn
+header
 {
 	background-color: $maincolor;
 	color: $backgroundcolor;
-	width: 90px;
+	padding: 2rem 0;
+
+	p
+	{
+		white-space: pre;
+	}
+
+	button
+	{
+		background-color: $backgroundcolor !important;
+		color: $maincolor !important;
+	}
+
+	select
+	{
+		background-color: $backgroundcolor;
+		color: $maincolor;
+		border: 0;
+		padding: .15rem 1rem;
+		border-radius: 3px;
+	}
 }
 
 #outputtext
 {
-	background-color: $maincolor;
-	color: $backgroundcolor;
-	width: 100%;
-	height: 350px;
+	display: flex;
+	justify-content: center;
 	white-space: pre;
+	padding: 2rem;
+
+	h1
+	{
+		align-self: center;
+	}
 }
+
 
 @media (min-width: 576px)
 {
-
-	#outputtext
+	body
 	{
-		height: 10px;
+		flex-direction: row;
+	}
+
+	header
+	{
+
 	}
 }
