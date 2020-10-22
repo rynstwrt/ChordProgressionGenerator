@@ -72,7 +72,7 @@ select
 	}
 }
 
-@media (min-width: 576px) // landscape phones
+@media (min-width: 576px) // landscape phones (sm)
 {
 	#viewbox-container
 	{
@@ -81,21 +81,87 @@ select
 	}
 }
 
-@media (min-width: 768px) // tablets
+@media (min-width: 768px) // tablets (md)
 {
+
+	p
+	{
+		font-size: 1.8rem;
+	}
+
+	select
+	{
+		font-size: 1.5rem;
+	}
+
+	.col-auto
+	{
+		padding: 0 1rem;
+	}
+
+	.btn
+	{
+		$size: 85px;
+		width: $size;
+		height: $size;
+	}
+
 	#viewbox-container
 	{
 		min-height: 50% !important;
 		max-height: 50% !important;
+
+		#viewbox
+		{
+			h1
+			{
+				// set fontsize
+				font-size: 3.5rem;
+				line-height: 6rem;
+			}
+		}
 	}
 }
 
-@media (min-width: 992px) // landscape tablets/desktops
+@media (min-width: 992px) // landscape tablets/desktops (lg)
 {
 
+	p
+	{
+		font-size: 2rem;
+	}
+
+	select
+	{
+		font-size: 1.8rem;
+	}
+
+	.col-auto
+	{
+		padding: 0 .5rem;
+	}
+
+	.btn
+	{
+		$size: 110px;
+		width: $size;
+		height: $size;
+	}
+
+	#viewbox-container
+	{
+		min-height: 100% !important;
+		max-height: 100% !important;
+	}
+
+	#spacer
+	{
+		width: 100%;
+		height: 190px;
+	}
 }
 
-@media (min-width: 1200px) // desktops
+@media (min-width: 1200px) // desktops (xl)
 {
-
+	
 }

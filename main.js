@@ -278,7 +278,7 @@ function generate(isRepeat)
 	}
 	$('#viewbox h1').html(text);
 
-	makeTones(progression, previewOctave);
+	//makeTones(progression, previewOctave);
 }
 
 $('#generatebutton').click(async () =>
@@ -295,4 +295,9 @@ $('body').keypress((e) =>
 $('#replaybutton').click(async () =>
 {
 	generate(true);
+});
+
+$(document).ready(() =>
+{
+	generate(false);
 });
