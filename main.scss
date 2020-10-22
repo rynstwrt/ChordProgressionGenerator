@@ -6,11 +6,12 @@ body
 {
 	background-color: $maincolor;
 	color: $backgroundcolor;
+	font-family: 'Press Start 2P', cursive;
 }
 
 p
 {
-	font-size: 1.3rem;
+	font-size: 1rem;
 	text-transform: lowercase;
 	font-variant: small-caps;
 }
@@ -23,11 +24,13 @@ select
 	border: 0 !important;
 	border-bottom: 1px solid $backgroundcolor !important;
 	border-radius: 3px !important;
+	font-size: .8rem;
 
 	option
 	{
 		background-color: $maincolor;
 		color: $backgroundcolor;
+		font-size: 1rem;
 	}
 }
 
@@ -67,17 +70,32 @@ select
 	h1
 	{
 		white-space: pre;
-		font-size: 2rem;
-		line-height: 4rem;
+		font-size: 1.1rem;
+		line-height: 3rem;
 	}
 }
 
 @media (min-width: 576px) // landscape phones (sm)
 {
+
+	select
+	{
+		font-size: .7rem;
+	}
+
 	#viewbox-container
 	{
 		min-height: 100% !important;
 		max-height: 100% !important;
+
+		#viewbox
+		{
+			h1
+			{
+				font-size: .8rem;
+				line-height: 2.2rem;
+			}
+		}
 	}
 }
 
@@ -86,12 +104,12 @@ select
 
 	p
 	{
-		font-size: 1.8rem;
+		font-size: 1.6rem;
 	}
 
 	select
 	{
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 	}
 
 	.col-auto
@@ -115,8 +133,7 @@ select
 		{
 			h1
 			{
-				// set fontsize
-				font-size: 3.5rem;
+				font-size: 2.2rem;
 				line-height: 6rem;
 			}
 		}
@@ -128,12 +145,12 @@ select
 
 	p
 	{
-		font-size: 2rem;
+		font-size: 1.7rem;
 	}
 
 	select
 	{
-		font-size: 1.8rem;
+		font-size: 1.3rem;
 	}
 
 	.col-auto
@@ -143,7 +160,7 @@ select
 
 	.btn
 	{
-		$size: 110px;
+		$size: 100px;
 		width: $size;
 		height: $size;
 	}
@@ -157,7 +174,8 @@ select
 		{
 			h1
 			{
-				font-size: 3.3rem;
+				font-size: 1.7rem;
+				line-height: 5rem;
 			}
 		}
 	}
@@ -169,7 +187,78 @@ select
 	}
 }
 
-@media (min-width: 1200px) // desktops (xl)
+@media (min-width: 1400px) // desktops
+{
+	p
+	{
+		font-size: 3rem;
+	}
+
+	select
+	{
+		font-size: 2.75rem;
+	}
+
+	#spacer
+	{
+		height: 240px;
+	}
+
+	#viewbox-container
+	{
+		#viewbox
+		{
+			h1
+			{
+				font-size: 4.5rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 1540px) // larger desktops
+{
+	#spacer
+	{
+		height: 400px;
+	}
+}
+
+@media (min-width: 1800px) // even larger desktops
 {
 
+	select
+	{
+		font-size: 2.4rem;
+		border-width: 2px !important;
+	}
+
+	.col-auto
+	{
+		padding: 0 1.5rem;
+	}
+
+	.btn
+	{
+		$size: 150px;
+		width: $size;
+		height: $size;
+	}
+
+	#spacer
+	{
+		height: 350px;
+	}
+
+	#viewbox-container
+	{
+		#viewbox
+		{
+			h1
+			{
+				font-size: 3rem;
+				line-height: 9rem;
+			}
+		}
+	}
 }
