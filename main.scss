@@ -1,12 +1,13 @@
 $backgroundcolor: #002e5b;
 $maincolor: #7eebae;
-$accentcolor: #57c688;
+$accentcolor: #54ad7c;
 
 body
 {
 	background-color: $maincolor;
 	color: $backgroundcolor;
 	font-family: 'Press Start 2P', cursive;
+	box-sizing: border-box;
 }
 
 p
@@ -16,27 +17,66 @@ p
 	font-variant: small-caps;
 }
 
-select
+label
 {
-	background-color: transparent !important;
-	color: $backgroundcolor !important;
-	padding: 0 .5rem;
-	border: 0 !important;
-	border-bottom: 1px solid $backgroundcolor !important;
-	border-radius: 3px !important;
-	font-size: .8rem;
+	font-size: .7rem;
+}
 
-	option
+output
+{
+	font-size: .7rem;
+}
+
+input[type='range']
+{
+	vertical-align: middle;
+
+	&::-webkit-slider-runnable-track
 	{
-		background-color: $maincolor;
-		color: $backgroundcolor;
-		font-size: 1rem;
+		background-color: $accentcolor;
+	}
+
+	&::-moz-range-progress
+	{
+		background-color: $accentcolor;
+	}
+
+	&::-moz-range-track
+	{
+		background-color: $accentcolor;
+	}
+
+	&::-ms-fill-lower
+	{
+		background-color: $accentcolor;
+	}
+
+	&::-ms-fill-upper
+	{
+		background-color: $accentcolor;
+	}
+
+	&::-webkit-slider-thumb
+	{
+		background-color: $backgroundcolor;
+		width: 16px;
+	}
+
+	&::-moz-range-thumb
+	{
+		background-color: $backgroundcolor;
+	}
+
+	&::-ms-thumb
+	{
+		background-color: $backgroundcolor;
 	}
 }
 
-.col-auto
+.form-group
 {
-	padding: 0 .5rem;
+	display: flex;
+	flex-direction: column;
 }
 
 .btn
@@ -46,15 +86,20 @@ select
 	$size: 55px;
 	width: $size;
 	height: $size;
-	border: 3px solid $accentcolor;
 	border-radius: 50%;
+	box-shadow: 2px 2px 0 0 rgba(0, 0, 0, .3);
+	transition: box-shadow .3s;
+
+	&:active
+	{
+		box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .5);
+	}
 }
 
 #viewbox
 {
 	background-color: $backgroundcolor;
 	color: $maincolor;
-	border: 5px solid $accentcolor;
 	border-radius: 5px;
 	box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, .7);
 	overflow-y: scroll;
@@ -70,19 +115,14 @@ select
 	h1
 	{
 		white-space: pre;
-		font-size: 1.1rem;
+		font-size: 1rem;
 		line-height: 3rem;
+		text-shadow: 0 2px $accentcolor;
 	}
 }
 
 @media (min-width: 576px) // landscape phones (sm)
 {
-
-	select
-	{
-		font-size: .7rem;
-	}
-
 	#viewbox-container
 	{
 		min-height: 100% !important;
@@ -107,7 +147,12 @@ select
 		font-size: 1.6rem;
 	}
 
-	select
+	label
+	{
+		font-size: 1.2rem;
+	}
+
+	output
 	{
 		font-size: 1.2rem;
 	}
@@ -131,10 +176,13 @@ select
 
 		#viewbox
 		{
+			box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, .7);
+
 			h1
 			{
 				font-size: 2.2rem;
 				line-height: 6rem;
+				text-shadow: 0 3px $accentcolor;
 			}
 		}
 	}
@@ -146,11 +194,6 @@ select
 	p
 	{
 		font-size: 1.7rem;
-	}
-
-	select
-	{
-		font-size: 1.3rem;
 	}
 
 	.col-auto
@@ -174,7 +217,7 @@ select
 		{
 			h1
 			{
-				font-size: 1.7rem;
+				font-size: 1.5rem;
 				line-height: 5rem;
 			}
 		}
@@ -183,7 +226,7 @@ select
 	#spacer
 	{
 		width: 100%;
-		height: 190px;
+		height: 100px;
 	}
 }
 
@@ -194,30 +237,33 @@ select
 		font-size: 3rem;
 	}
 
-	select
-	{
-		font-size: 2.75rem;
-	}
-
 	#spacer
 	{
-		height: 240px;
+		height: 400px;
 	}
 
-	#viewbox-container
+	#viewbox
 	{
-		#viewbox
+		h1
 		{
-			h1
-			{
-				font-size: 4.5rem;
-			}
+			font-size: 2.3rem !important;
+			line-height: 6rem !important;
 		}
 	}
 }
 
 @media (min-width: 1540px) // larger desktops
 {
+	label
+	{
+		font-size: 1.8rem;
+	}
+
+	output
+	{
+		font-size: 1.8rem;
+	}
+
 	#spacer
 	{
 		height: 400px;
@@ -227,22 +273,9 @@ select
 @media (min-width: 1800px) // even larger desktops
 {
 
-	select
+	label
 	{
-		font-size: 2.4rem;
-		border-width: 2px !important;
-	}
-
-	.col-auto
-	{
-		padding: 0 1.5rem;
-	}
-
-	.btn
-	{
-		$size: 150px;
-		width: $size;
-		height: $size;
+		font-size: 2rem;
 	}
 
 	#spacer
@@ -250,15 +283,12 @@ select
 		height: 350px;
 	}
 
-	#viewbox-container
+	#viewbox
 	{
-		#viewbox
+		h1
 		{
-			h1
-			{
-				font-size: 3rem;
-				line-height: 9rem;
-			}
+			font-size: 3.2rem !important;
+			line-height: 8.5rem !important;
 		}
 	}
 }

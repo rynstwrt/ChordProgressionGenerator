@@ -20,45 +20,51 @@
 			<!-- Inputs and Buttons-->
 			<div class='col-sm-6 col-md col-lg-6 flex-fill d-flex flex-column justify-content-center px-4 px-md-5'>
 				<!-- Number of Chords -->
-				<div class='row align-items-center'>
-					<div class='col-auto'><p>Number of Chords:</p></div>
-					<div class='col-auto'>
-						<select id='numchordsselector'>
-							<option>3</option>
-							<option selected>4</option>
-							<option>5</option>
-							<option>6</option>
-							<option>7</option>
-						</select>
+				<div class='row my-1 my-md-3 my-lg-4'>
+					<div class='col-12'>
+						<div class='row'>
+							<div class='col-auto d-flex justify-content-center'>
+								<label for='numberofchordsrange'>Number of Chords:</label>
+							</div>
+							<div class='col d-flex justify-content-center align-items-center'>
+								<output id='numberofchordsoutput'>4</output>
+								<input type='range' class='custom-range ml-3' id='numberofchordsrange' min='3' max='7' value='4' data-thumbwidth='16'/>
+							</div>
+						</div>
 					</div>
 				</div>
 				<!-- Octave -->
-				<div class='row align-items-center mt-lg-3'>
-					<div class='col-auto'><p>Preview Octave:</p></div>
-					<div class='col-auto'>
-						<select id='octaveselector'>
-							<option>2</option>
-	                        <option>3</option>
-	                        <option selected>4</option>
-	                        <option>5</option>
-	                        <option>6</option>
-						</select>
+				<div class='row my-1 my-md-3 my-lg-4'>
+					<div class='col-12'>
+						<div class='row'>
+							<div class='col-auto d-flex justify-content-center'>
+								<label for='octaverange'>Preview Octave:</label>
+							</div>
+							<div class='col d-flex justify-content-center align-items-center'>
+								<output id='octaveoutput'>4</output>
+								<input type='range' class='custom-range ml-3' id='octaverange' min='3' max='7' value='4' />
+							</div>
+						</div>
 					</div>
 				</div>
 				<!-- Major / Minor -->
-				<div class='row align-items-center mt-lg-3'>
-					<div class='col-auto'><p>Major/Minor:</p></div>
-					<div class='col-auto'>
-						<select id='majorminorselector'>
-							<option selected>Major</option>
-							<option>Minor</option>
-						</select>
+				<div class='row my-1 my-md-3 my-lg-4'>
+					<div class='col-12'>
+						<div class='row d-flex justify-content-center'>
+							<div class='col-auto col-lg-12 col-xl-auto d-flex justify-content-center'>
+								<label for='octaverange'>Major / Minor:</label>
+							</div>
+							<div class='col col-lg-7 col-xl-auto d-flex justify-content-center align-items-center mt-lg-2'>
+								<output id='majorminoroutput'>Major</output>
+								<input type='range' class='custom-range ml-3' id='majorminorrange' min='1' max='2' value='1' />
+							</div>
+						</div>
 					</div>
 				</div>
 				<!-- Spacer -->
 				<div id='spacer'></div>
 				<!-- Replay Button -->
-				<div class='row align-items-center mt-4 mt-sm-5 mr-sm-1 mr-md-0 pt-2'>
+				<div class='row align-items-center mt-4 mt-sm-5 mr-sm-0 mr-md-0 pt-2'>
 					<div class='col'></div>
 					<div class='col-auto'><p>Replay</p></div>
 					<div class='col-auto'>
@@ -66,7 +72,7 @@
 					</div>
 				</div>
 				<!-- Generate Button -->
-				<div class='row mr-1 align-items-center mr-sm-3 mr-md-0 mr-lg-5 mt-md-4'>
+				<div class='row mr-1 align-items-center mr-sm-5 mr-md-0 mr-lg-5 mt-sm-3 mt-md-4 mb-md-4 mb-xl-0'>
 					<div class='col col-lg-0'></div>
 					<div class='col-auto'><p>Generate</p></div>
 					<div class='col-auto'>

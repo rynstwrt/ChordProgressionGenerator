@@ -260,25 +260,25 @@ async function makeTones(progression, octave)
 
 function generate(isRepeat)
 {
-	const numChords = $('#numchordsselector')[0].value;
-	const previewOctave = $('#octaveselector')[0].value;
-	const majorOrMinor = $('#majorminorselector')[0].value;
-	const progression = getProgression(isRepeat, numChords, (majorOrMinor === 'Major'));
+	const numChords = $('#numberofchordsrange').val();
+	const previewOctave = $('#octaverange').val();
+	const majorOrMinor = $('#majorminorrange').val();
+	const progression = getProgression(isRepeat, numChords, (majorOrMinor == 1));
 
 	let text = '';
 	for (let i = 0; i < progression.length; ++i)
 	{
 		const chord = progression[i];
-		text += '<strong><u>';
+		text += '<strong>';
 		text += chord.name;
-		text += '</u></strong>';
+		text += '</strong>';
 		text += ': ';
 		text += chord.notes.join(', ');
 		text += '\r\n';
 	}
 	$('#viewbox h1').html(text);
 
-	//makeTones(progression, previewOctave);
+	makeTones(progression, previewOctave);
 }
 
 $('#generatebutton').click(async () =>
@@ -297,7 +297,26 @@ $('#replaybutton').click(async () =>
 	generate(true);
 });
 
-$(document).ready(() =>
+$('#numberofchordsrange').on('input', () =>
 {
-	generate(false);
+	const range = $('#numberofchordsrange');
+	const value = range.val();
+	const output = $('#numberofchordsoutput');
+	output.text(value);
+});
+
+$('#octaverange').on('input', () =>
+{
+	const range = $('#octaverange');
+	const value = range.val();
+	const output = $('#octaveoutput');
+	output.text(value);
+});
+
+$('#majorminorrange').on('input', () =>
+{
+	const range = $('#majorminorrange');
+	const value = (range.val() == 1) ? 'Major' : 'Minor';
+	const output = $('#majorminoroutput');
+	output.text(value);
 });
