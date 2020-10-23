@@ -14,7 +14,8 @@ body
 	background-color: $maincolor;
 	color: $backgroundcolor;
 	font-family: 'Press Start 2P', cursive;
-	box-sizing: border-box;
+	border-radius: 25px;
+	box-shadow: 0 0 100vmax 100vmax rgba(0, 0, 0, .75);
 }
 
 p
@@ -94,7 +95,6 @@ input[type='range']
 	width: $size;
 	height: $size;
 	border-radius: 50%;
-	box-shadow: 2px 2px 0 0 rgba(0, 0, 0, .3);
 	transition: box-shadow .3s;
 
 	&:active
