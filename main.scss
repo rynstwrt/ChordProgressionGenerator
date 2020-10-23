@@ -8,6 +8,12 @@
 $backgroundcolor: #002e5b;
 $maincolor: #7eebae;
 $accentcolor: #54ad7c;
+$atmospherecolor: #022241;
+
+html
+{
+	background-color: $atmospherecolor;
+}
 
 body
 {
@@ -15,7 +21,6 @@ body
 	color: $backgroundcolor;
 	font-family: 'Press Start 2P', cursive;
 	border-radius: 25px;
-	box-shadow: 0 0 100vmax 100vmax rgba(0, 0, 0, .75);
 }
 
 p
@@ -191,7 +196,7 @@ input[type='range']
 {
 	body
 	{
-		background-color: $accentcolor;
+		background-color: $atmospherecolor;
 		display: flex;
 		align-items: center;
 		border-radius: 0;
@@ -257,17 +262,17 @@ input[type='range']
 {
 	label
 	{
-
+		font-size: 1.1rem;
 	}
 
-	option
+	output
 	{
-
+		font-size: 1.1rem;
 	}
 
 	p
 	{
-
+		font-size: 1.7rem;
 	}
 
 	.container-fluid
@@ -278,6 +283,14 @@ input[type='range']
 
 	.btn
 	{
-
+		$size: 75px;
+		width: $size;
+		height: $size;
 	}
+
+	#generatebutton
+	{
+		margin-right: 2rem;
+	}
+
 }
