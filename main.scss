@@ -1,3 +1,10 @@
+@font-face
+{
+	font-family: 'Press Start 2P';
+	src: url('PressStart2P-Regular.ttf'); // IE9 compat
+	src: url('PressStart2P-Regular.ttf') format('truetype'); // Safari, Android, IOS
+}
+
 $backgroundcolor: #002e5b;
 $maincolor: #7eebae;
 $accentcolor: #54ad7c;

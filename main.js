@@ -1,23 +1,17 @@
 // Set Variables
 const synth = new Tone.PolySynth().toDestination();
-synth.set({
-	polyphony: 2,
-	volume: -1,
-	voice: Tone.Synth
-});
+synth.set({ volume: -4 });
 let part;
 
 // Generate the progression, display it, then play it
-function presentChord(isReplay)
+async function presentChord(isReplay)
 {
 	if (!part && isReplay) return; // If replaying with no data
 
 	// Reset
 	Tone.Transport.stop();
 	if (part && !isReplay)
-	{
 		part.clear();
-	}
 
 	if (!isReplay)
 	{
@@ -53,14 +47,14 @@ function presentChord(isReplay)
 		$('#viewbox h1').html(outputString);
 
 		// Set up part to play
-		part = new Tone.Part((time, value) =>
+		part = await new Tone.Part((time, value) =>
 		{
 			synth.triggerAttackRelease(value.note, noteDuration, time);
 		}, synthProgression).start(0);
 	}
 
 	// Play sound
-	Tone.start();
+	await Tone.start();
 	Tone.Transport.start();
 }
 
