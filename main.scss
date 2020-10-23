@@ -96,9 +96,8 @@ input[type='range']
 {
 	background-color: $backgroundcolor;
 	color: $maincolor;
-	$size: 45px;
-	width: $size;
-	height: $size;
+	width: 45px;
+	height: 45px;
 	border-radius: 50%;
 	transition: box-shadow .3s;
 
@@ -204,7 +203,7 @@ input[type='range']
 
 	label
 	{
-		font-size: .8rem;
+		font-size: .7rem;
 	}
 
 	output
@@ -214,19 +213,21 @@ input[type='range']
 
 	p
 	{
+		font-size: 1.2rem;
 	}
 
 	.container-fluid
 	{
-		width: 450px;
-		height: 750px !important;
+		width: 400px;
+		height: 650px !important;
 		background-color: $maincolor;
 		border-radius: 25px;
+		box-shadow: 15px 0 0 10px $accentcolor;
 	}
 
 	.btn
 	{
-		$size: 50px;
+		$size: 45px;
 		width: $size;
 		height: $size;
 	}
@@ -237,7 +238,7 @@ input[type='range']
 		{
 			h1
 			{
-				font-size: 2rem;
+				font-size: 1.5rem;
 			}
 		}
 	}
@@ -251,8 +252,7 @@ input[type='range']
 		{
 			h1
 			{
-				font-size: 1.5rem;
-
+				font-size: 1.3rem;
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 // Set Variables
 const synth = new Tone.PolySynth().toDestination();
-synth.set({ volume: -4 });
+synth.set({ volume: -5 });
 let part;
 
 // Generate the progression, display it, then play it
