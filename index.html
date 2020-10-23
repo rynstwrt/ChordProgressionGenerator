@@ -11,15 +11,15 @@
 	<div class='container-fluid h-100'>
 		<div class='row h-100 flex-column'>
 			<!-- View Box -->
-			<div id='viewbox-container' class='col-sm-6 col-md col-lg-6 mt-3 mt-sm-0 p-sm-4' style='min-height: 50%; max-height: 50%;'>
+			<div id='viewbox-container' class='col-sm-6 col-md-12 mt-3 mt-sm-0 p-sm-4' style='min-height: 50%; max-height: 50%;'>
 				<div id='viewbox' class='h-100 d-flex justify-content-center p-4'>
 					<h1 class='text-center'></h1>
 				</div>
 			</div>
 			<!-- Inputs and Buttons-->
-			<div class='col-sm-6 col-md col-lg-6 flex-fill d-flex flex-column justify-content-center px-4 px-md-5'>
+			<div class='col-sm-6 col-md-12 flex-fill d-flex flex-column justify-content-center px-4'>
 				<!-- Number of Chords -->
-				<div class='row my-1 my-md-3 my-lg-4'>
+				<div class='row my-1 my-md-3 px-md-4'>
 					<div class='col-12'>
 						<div class='row'>
 							<div class='col-auto d-flex justify-content-center'>
@@ -27,13 +27,13 @@
 							</div>
 							<div class='col d-flex justify-content-center align-items-center'>
 								<output id='numberofchordsoutput'>4</output>
-								<input type='range' class='custom-range ml-3' id='numberofchordsrange' min='3' max='7' value='4' data-thumbwidth='16'/>
+								<input type='range' class='custom-range' id='numberofchordsrange' min='3' max='7' value='4' data-thumbwidth='16'/>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- Octave -->
-				<div class='row my-1 my-md-3 my-lg-4'>
+				<div class='row my-1 my-md-2 px-md-4'>
 					<div class='col-12'>
 						<div class='row'>
 							<div class='col-auto d-flex justify-content-center'>
@@ -41,19 +41,19 @@
 							</div>
 							<div class='col d-flex justify-content-center align-items-center'>
 								<output id='octaveoutput'>4</output>
-								<input type='range' class='custom-range ml-3' id='octaverange' min='1' max='8' value='4' />
+								<input type='range' class='custom-range' id='octaverange' min='1' max='8' value='4' />
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- Major / Minor -->
-				<div class='row my-1 my-md-3 my-lg-4'>
+				<div class='row my-1 my-md-2 px-md-4'>
 					<div class='col-12'>
 						<div class='row d-flex justify-content-center'>
-							<div class='col-auto col-lg-12 col-xl-auto d-flex justify-content-center'>
+							<div class='col-auto d-flex justify-content-center'>
 								<label for='octaverange'>Major/Minor:</label>
 							</div>
-							<div class='col col-lg-7 col-xl-auto d-flex justify-content-center align-items-center mt-lg-2'>
+							<div class='col d-flex justify-content-center align-items-center'>
 								<output id='majorminoroutput'>Major</output>
 								<input type='range' class='custom-range ml-3' id='majorminorrange' min='1' max='2' value='1' />
 							</div>
@@ -61,13 +61,13 @@
 					</div>
 				</div>
 				<!-- Note Duration -->
-				<div class='row my-1 my-md-3 my-lg-4'>
+				<div class='row my-1 my-md-2 px-md-4'>
 					<div class='col-12'>
 						<div class='row d-flex justify-content-center'>
-							<div class='col-auto col-lg-12 col-xl-auto d-flex justify-content-center'>
+							<div class='col-auto d-flex justify-content-center'>
 								<label for='notedurationrange'>Note Duration:</label>
 							</div>
-							<div class='col col-lg-7 col-xl-auto d-flex justify-content-center align-items-center mt-lg-2'>
+							<div class='col d-flex justify-content-center align-items-center'>
 								<output id='notedurationoutput'>4n</output>
 								<input type='range' class='custom-range ml-3' id='notedurationrange' min='0' max='4' value='2' />
 							</div>
@@ -77,7 +77,7 @@
 				<!-- Spacer -->
 				<div id='spacer'></div>
 				<!-- Replay Button -->
-				<div class='row align-items-center mt-4 mt-sm-5 mr-sm-0 mr-md-0 pt-2'>
+				<div class='row align-items-center mt-3 mt-sm-5 mt-md-3 mr-0 mr-sm-0 mr-md-2 pt-2'>
 					<div class='col'></div>
 					<div class='col-auto'><p>Replay</p></div>
 					<div class='col-auto'>
@@ -85,8 +85,8 @@
 					</div>
 				</div>
 				<!-- Generate Button -->
-				<div class='row mr-1 align-items-center mr-sm-5 mr-md-0 mr-lg-5 mt-sm-3 mt-md-4 mb-md-4 mb-xl-0'>
-					<div class='col col-lg-0'></div>
+				<div class='row align-items-center mr-2 mr-sm-5 mr-md-2 mt-3 mt-sm-3 mt-md-4 mb-2 mb-sm-0 mb-md-4'>
+					<div class='col'></div>
 					<div class='col-auto'><p>Generate</p></div>
 					<div class='col-auto'>
 						<button id='generatebutton' class='btn'></button>

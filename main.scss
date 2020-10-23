@@ -91,7 +91,7 @@ input[type='range']
 {
 	background-color: $backgroundcolor;
 	color: $maincolor;
-	$size: 55px;
+	$size: 45px;
 	width: $size;
 	height: $size;
 	border-radius: 50%;
@@ -149,29 +149,24 @@ input[type='range']
 @media (min-width: 768px) // tablets (md)
 {
 
-	p
-	{
-		font-size: 1.6rem;
-	}
-
 	label
 	{
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 	}
 
 	output
 	{
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 	}
 
-	.col-auto
+	p
 	{
-		padding: 0 1rem;
+		font-size: 1.5rem;
 	}
 
 	.btn
 	{
-		$size: 85px;
+		$size: 75px;
 		width: $size;
 		height: $size;
 	}
@@ -183,13 +178,10 @@ input[type='range']
 
 		#viewbox
 		{
-			box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, .7);
-
 			h1
 			{
-				font-size: 2.2rem;
-				line-height: 6rem;
-				text-shadow: 0 3px $accentcolor;
+				font-size: 2rem;
+				line-height: 4rem;
 			}
 		}
 	}
@@ -197,105 +189,95 @@ input[type='range']
 
 @media (min-width: 992px) // landscape tablets/desktops (lg)
 {
+	body
+	{
+		background-color: $accentcolor;
+		display: flex;
+		align-items: center;
+		border-radius: 0;
+	}
+
+	label
+	{
+		font-size: .8rem;
+	}
+
+	output
+	{
+		font-size: .8rem;
+	}
 
 	p
 	{
-		font-size: 1.7rem;
 	}
 
-	.col-auto
+	.container-fluid
 	{
-		padding: 0 .5rem;
+		width: 450px;
+		height: 750px !important;
+		background-color: $maincolor;
+		border-radius: 25px;
 	}
 
 	.btn
 	{
-		$size: 100px;
+		$size: 50px;
 		width: $size;
 		height: $size;
 	}
 
 	#viewbox-container
 	{
-		min-height: 100% !important;
-		max-height: 100% !important;
+		#viewbox
+		{
+			h1
+			{
+				font-size: 2rem;
+			}
+		}
+	}
+}
 
+@media (min-width: 1200px) // desktops (xl)
+{
+	#viewbox-container
+	{
 		#viewbox
 		{
 			h1
 			{
 				font-size: 1.5rem;
-				line-height: 5rem;
+
 			}
 		}
 	}
-
-	#spacer
-	{
-		width: 100%;
-		height: 100px;
-	}
 }
 
-@media (min-width: 1400px) // desktops
+@media (min-width: 1900px) // desktop
 {
+	label
+	{
+
+	}
+
+	option
+	{
+
+	}
+
 	p
 	{
-		font-size: 3rem;
+
 	}
 
-	#spacer
+	.container-fluid
 	{
-		height: 400px;
+		width: 550px;
+		height: 900px !important;
 	}
 
-	#viewbox
+	.btn
 	{
-		h1
-		{
-			font-size: 2.3rem !important;
-			line-height: 6rem !important;
-		}
-	}
-}
 
-@media (min-width: 1540px) // larger desktops
-{
-	label
-	{
-		font-size: 1.8rem;
-	}
-
-	output
-	{
-		font-size: 1.8rem;
-	}
-
-	#spacer
-	{
-		height: 400px;
-	}
-}
-
-@media (min-width: 1800px) // even larger desktops
-{
-
-	label
-	{
-		font-size: 2rem;
-	}
-
-	#spacer
-	{
-		height: 350px;
-	}
-
-	#viewbox
-	{
-		h1
-		{
-			font-size: 3.2rem !important;
-			line-height: 8.5rem !important;
-		}
 	}
 }
