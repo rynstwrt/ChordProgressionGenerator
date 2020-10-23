@@ -44,7 +44,7 @@ async function presentChord(isReplay)
 			const chord = progression.chords[chordIndex];
 			outputString += `<strong>${chord.name}</strong>: ${chord.notes.join(' ')}\r\n`;
 		}
-		$('#viewbox h1').html(outputString);
+		$('#screen h1').html(outputString);
 
 		// Set up part to play
 		part = await new Tone.Part((time, value) =>

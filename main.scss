@@ -5,292 +5,225 @@
 	src: url('PressStart2P-Regular.ttf') format('truetype'); // Safari, Android, IOS
 }
 
-$backgroundcolor: #002e5b;
-$maincolor: #7eebae;
-$accentcolor: #54ad7c;
-$atmospherecolor: #022241;
-
-html
-{
-	background-color: $atmospherecolor;
-}
+$gameboyscreencolor: #002e5b;
+$gameboybodycolor: #7eebae;
+$gameboybodyaccentcolor: #54ad7c;
+$backgroundcolor: #022241;
 
 body
 {
-	background-color: $maincolor;
-	color: $backgroundcolor;
+	background-color: $backgroundcolor;
+	color: $gameboybodyaccentcolor;
 	font-family: 'Press Start 2P', cursive;
-	border-radius: 25px;
 }
 
-p
+label, output
 {
-	font-size: 1rem;
+	font-size: .8rem;
 	text-transform: lowercase;
 	font-variant: small-caps;
 }
 
-label
-{
-	font-size: .7rem;
-}
-
 output
 {
-	font-size: .7rem;
+	color: $backgroundcolor;
 }
 
 input[type='range']
 {
-	vertical-align: middle;
+    &::-webkit-slider-runnable-track
+    {
+        background-color: $gameboybodyaccentcolor;
+    }
 
-	&::-webkit-slider-runnable-track
-	{
-		background-color: $accentcolor;
-	}
+    &::-moz-range-progress
+    {
+        background-color: $gameboybodyaccentcolor;
+    }
 
-	&::-moz-range-progress
-	{
-		background-color: $accentcolor;
-	}
+    &::-moz-range-track
+    {
+        background-color: $gameboybodyaccentcolor;
+    }
 
-	&::-moz-range-track
-	{
-		background-color: $accentcolor;
-	}
+    &::-ms-fill-lower
+    {
+        background-color: $gameboybodyaccentcolor;
+    }
 
-	&::-ms-fill-lower
-	{
-		background-color: $accentcolor;
-	}
+    &::-ms-fill-upper
+    {
+        background-color: $gameboybodyaccentcolor;
+    }
 
-	&::-ms-fill-upper
-	{
-		background-color: $accentcolor;
-	}
+    &::-webkit-slider-thumb
+    {
+        background-color: $backgroundcolor;
+        width: 16px;
+    }
 
-	&::-webkit-slider-thumb
-	{
-		background-color: $backgroundcolor;
-		width: 16px;
-	}
+    &::-moz-range-thumb
+    {
+        background-color: $backgroundcolor;
+    }
 
-	&::-moz-range-thumb
-	{
-		background-color: $backgroundcolor;
-	}
-
-	&::-ms-thumb
-	{
-		background-color: $backgroundcolor;
-	}
-}
-
-.form-group
-{
-	display: flex;
-	flex-direction: column;
+    &::-ms-thumb
+    {
+        background-color: $backgroundcolor;
+    }
 }
 
 .btn
 {
-	background-color: $backgroundcolor;
-	color: $maincolor;
-	width: 45px;
-	height: 45px;
-	border-radius: 50%;
-	transition: box-shadow .3s;
-
-	&:active
-	{
-		box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, .5);
-	}
+	background-color: $gameboyscreencolor;
+	color: $gameboybodycolor;
+	width: 100px;
+	text-transform: uppercase;
+	font-size: .5rem;
+	border-radius: 7px;
 }
 
-#viewbox
+.dpadrectangle
 {
 	background-color: $backgroundcolor;
-	color: $maincolor;
-	border-radius: 5px;
-	box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, .7);
-	overflow-y: scroll;
-	scrollbar-width: none;
-	-ms-overflow-style: none;
+	position: absolute;
+	width: 100px;
+	height: 33px;
+	bottom: 25%;
 
-	&::-webkit-scrollbar
-	{
-		width: 0;
-		height: 0;
-	}
+}
+
+#gameboy
+{
+	background-color: $gameboybodycolor;
+	height: 100vh;
+	border-radius: 20px;
+}
+
+#screen
+{
+	background-color: $gameboyscreencolor;
+	height: 300px;
+	box-shadow: inset 0 0 10px 0 black;
+	white-space: pre;
+	overflow-x: hidden;
+	overflow-y: scroll;
 
 	h1
 	{
-		white-space: pre;
-		font-size: 1rem;
+		color: $gameboybodycolor;
+		font-size: 1.3rem;
 		line-height: 3rem;
-		text-shadow: 0 2px $accentcolor;
 	}
 }
 
 @media (min-width: 576px) // landscape phones (sm)
 {
-	#viewbox-container
+	label, output
 	{
-		min-height: 100% !important;
-		max-height: 100% !important;
+		font-size: .75rem;
+	}
 
-		#viewbox
+	#screen
+	{
+		h1
 		{
-			h1
-			{
-				font-size: .8rem;
-				line-height: 2.2rem;
-			}
+			font-size: 1rem;
 		}
 	}
 }
 
 @media (min-width: 768px) // tablets (md)
 {
-
-	label
+	label, output
 	{
-		font-size: 1.1rem;
-	}
-
-	output
-	{
-		font-size: 1.1rem;
-	}
-
-	p
-	{
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 	}
 
 	.btn
 	{
-		$size: 75px;
-		width: $size;
-		height: $size;
+		font-size: .6rem;
+		width: 100px;
 	}
 
-	#viewbox-container
+	.dpadrectangle
 	{
-		min-height: 50% !important;
-		max-height: 50% !important;
+		width: 120px;
+	}
 
-		#viewbox
+	#gameboy
+	{
+		height: 850px !important;
+		box-shadow: -20px 0px 0px 0px $gameboybodyaccentcolor;
+	}
+
+	#screen
+	{
+		height: 400px;
+
+		h1
 		{
-			h1
-			{
-				font-size: 2rem;
-				line-height: 4rem;
-			}
+			font-size: 1.8rem;
+			line-height: 4rem;
 		}
 	}
 }
 
-@media (min-width: 992px) // landscape tablets/desktops (lg)
+@media (min-width: 992px) // landscape tablets, small desktops (lg)
 {
-	body
+	label, output
 	{
-		background-color: $atmospherecolor;
-		display: flex;
-		align-items: center;
-		border-radius: 0;
+		font-size: 1rem;
 	}
 
-	label
+	.dpadrectangle
 	{
-		font-size: .7rem;
+		width: 110px;
 	}
 
-	output
+	#gameboy
 	{
-		font-size: .8rem;
+		height: 710px !important;
 	}
 
-	p
+	#screen
 	{
-		font-size: 1.2rem;
-	}
+		height: 350px;
 
-	.container-fluid
-	{
-		width: 400px;
-		height: 650px !important;
-		background-color: $maincolor;
-		border-radius: 25px;
-		box-shadow: 15px 0 0 10px $accentcolor;
-	}
-
-	.btn
-	{
-		$size: 45px;
-		width: $size;
-		height: $size;
-	}
-
-	#viewbox-container
-	{
-		#viewbox
+		h1
 		{
-			h1
-			{
-				font-size: 1.5rem;
-			}
+			font-size: 1.3rem;
+			line-height: 3.7rem;
 		}
 	}
 }
 
 @media (min-width: 1200px) // desktops (xl)
 {
-	#viewbox-container
+	label, output
 	{
-		#viewbox
-		{
-			h1
-			{
-				font-size: 1.3rem;
-			}
-		}
-	}
-}
-
-@media (min-width: 1900px) // desktop
-{
-	label
-	{
-		font-size: 1.1rem;
+		font-size: .8rem;
 	}
 
-	output
+	.dpadrectangle
 	{
-		font-size: 1.1rem;
-	}
-
-	p
-	{
-		font-size: 1.7rem;
-	}
-
-	.container-fluid
-	{
-		width: 550px;
-		height: 900px !important;
+		width: 90px;
+		height: 25px;
 	}
 
 	.btn
 	{
-		$size: 75px;
-		width: $size;
-		height: $size;
+		font-size: .6rem;
 	}
 
-	#generatebutton
+	#gameboy
 	{
-		margin-right: 2rem;
+		width: 100px !important;
+		height: 580px !important;
 	}
 
+	#screen
+	{
+		height: 260px;
+	}
 }
