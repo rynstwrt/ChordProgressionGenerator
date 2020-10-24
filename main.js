@@ -37,8 +37,6 @@ async function presentChord(isReplay)
 			});
 		});
 
-		console.log(synthProgression);
-
 		// Set text
 		let outputString = '';
 		for (chordIndex in progression.chords)
@@ -52,7 +50,6 @@ async function presentChord(isReplay)
 		Tone.Transport.bpm.value = bpm;
 		part = await new Tone.Part((time, value) =>
 		{
-			console.log(value);
 			synth.triggerAttackRelease(value.note, '4n', time);
 		}, synthProgression).start(0);
 	}
