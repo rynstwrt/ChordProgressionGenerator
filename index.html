@@ -3,96 +3,40 @@
 <head>
 	<meta charset='utf-8' />
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-	<link rel='stylesheet' href='bootstrap/css/bootstrap.min.css' />
+	<!-- <link rel='stylesheet' href='bootstrap/css/bootstrap.min.css' /> -->
 	<link rel='stylesheet' href='main.min.css' />
 	<title>Chord Progression Generator</title>
 </head>
-<body class=' d-flex align-items-center' style='height: 100vh;'>
-	<div class='container-fluid'>
-		<div class='row'>
-			<div class='col'></div>
-			<div id='gameboy' class='col-12 col-md-8 col-lg-5 col-xl-3 d-flex flex-column'>
-				<div class='row'>
-					<!-- Screen -->
-					<div class='col-12 col-sm-6 col-md-12'>
-						<div class='row mx-1 mx-md-2 my-4' style='top: 0; left: 0;'>
-							<div id='screen' class='col-12 p-3 p-xl-0'>
-								<h1 class='text-center'></h1>
-							</div>
-						</div>
-					</div>
+<body class='d-flex justify-content-center align-items-center'>
 
-					<!-- D-Pad, inputs, and buttons -->
-					<div class='col-12 col-sm-6 col-md-12'>
-						<!-- D-Pad row -->
-						<div class='row mt-5 mt-lg-4 mt-xl-2 pt-sm-5 mb-4 mb-md-2 ml-md-3 ml-lg-0 p-4'>
-							<div class='col-auto pl-1'>
-								<div class='dpadrectangle'></div>
-								<div class='dpadrectangle' style='transform: rotateZ(90deg);'></div>
-							</div>
-							<div class='col'></div>
-						</div>
-						<!-- Inputs row -->
-						<div class='row pt-sm-2 pt-md-5 pt-lg-3 pt-xl-1'>
-							<div class='col-12'>
-								<!-- Number of chords row -->
-								<div class='row justify-content-center'>
-									<div class='col-auto'>
-										<label for='numberofchordsrange'>Number of Chords:</label>
-										<output id='numberofchordsoutput'>4</output>
-									</div>
-									<div class='col-4 d-flex flex-column justify-content-center'>
-										<input type='range' class='custom-range' id='numberofchordsrange' min='3' max='7' value='4' />
-									</div>
-								</div>
-								<!-- Octave row -->
-								<div class='row justify-content-center'>
-									<div class='col-auto'>
-										<label for='octaverange'>Preview Octave:</label>
-										<output id='octaveoutput'>3</output>
-									</div>
-									<div class='col-4 d-flex flex-column justify-content-center'>
-										<input type='range' class='custom-range' id='octaverange' min='2' max='7' value='3' />
-									</div>
-								</div>
-								<!-- Major / minor row -->
-								<div class='row justify-content-center'>
-									<div class='col-auto'>
-										<label for='majorminorrange'>Major/Minor:</label>
-										<output id='majorminoroutput'>Major</output>
-									</div>
-									<div class='col-2 d-flex flex-column justify-content-center'>
-										<input type='range' class='custom-range' id='majorminorrange' min='1' max='2' value='1' />
-									</div>
-								</div>
-								<!-- Note duration row -->
-								<div class='row justify-content-center'>
-									<div class='col-auto'>
-										<label for='notedurationrange'>Note Duration:</label>
-										<output id='notedurationoutput'>4n</output>
-									</div>
-									<div class='col-4 d-flex flex-column justify-content-center'>
-										<input type='range' class='custom-range' id='notedurationrange' min='0' max='4' value='2' />
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Button row -->
-						<div class='row align-items-end mt-3 mt-sm-4 mt-xl-3 mb-3 mb-md-1'>
-							<div class='col-12 d-flex justify-content-center'>
-								<button id='generatebutton' class='btn mx-1'>Generate</button>
-								<button id='replaybutton' class='btn mx-1'>Replay</button>
-							</div>
-						</div>
-					</div>
-
-				</div>
+	<div id='gameboy'>
+		<div id='screen-container'>
+			<div id='screen'>
+				<h1>asdfasdf</h1>
 			</div>
-			<div class='col'></div>
+		</div>
+		<div class='button-container'>
+			<div class='p-container'>
+				<p>Generate</p>
+			</div>
+			<div id='generatebutton' class='button'></div>
+		</div>
+		<div class='button-container'>
+			<div class='p-container'>
+				<p>Replay</p>
+			</div>
+			<div id='replaybutton' class='button' style='margin-right: 3.5rem;'></div>
+		</div>
+		<div class='slider-container'>
+			<div class='p-container'>
+				<p>Nmbr of Chords:</p>
+				<output id='numberofchordsoutput'>4</output>
+			</div>
 		</div>
 	</div>
+
 	<script src='jquery.min.js'></script>
-	<script src='bootstrap/js/bootstrap.bundle.min.js'></script>
+	<!-- <script src='bootstrap/js/bootstrap.bundle.min.js'></script> -->
 	<script src='Tone.js'></script>
 	<script src='ChordGenerator.js'></script>
 	<script src='main.js'></script>

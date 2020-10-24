@@ -10,220 +10,82 @@ $gameboybodycolor: #7eebae;
 $gameboybodyaccentcolor: #54ad7c;
 $backgroundcolor: #022241;
 
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body
 {
 	background-color: $backgroundcolor;
-	color: $gameboybodyaccentcolor;
+	color: $gameboybodycolor;
 	font-family: 'Press Start 2P', cursive;
-}
-
-label, output
-{
-	font-size: .8rem;
 	text-transform: lowercase;
 	font-variant: small-caps;
-}
-
-output
-{
-	color: $backgroundcolor;
-}
-
-input[type='range']
-{
-    &::-webkit-slider-runnable-track
-    {
-        background-color: $gameboybodyaccentcolor;
-    }
-
-    &::-moz-range-progress
-    {
-        background-color: $gameboybodyaccentcolor;
-    }
-
-    &::-moz-range-track
-    {
-        background-color: $gameboybodyaccentcolor;
-    }
-
-    &::-ms-fill-lower
-    {
-        background-color: $gameboybodyaccentcolor;
-    }
-
-    &::-ms-fill-upper
-    {
-        background-color: $gameboybodyaccentcolor;
-    }
-
-    &::-webkit-slider-thumb
-    {
-        background-color: $backgroundcolor;
-        width: 16px;
-    }
-
-    &::-moz-range-thumb
-    {
-        background-color: $backgroundcolor;
-    }
-
-    &::-ms-thumb
-    {
-        background-color: $backgroundcolor;
-    }
-}
-
-.btn
-{
-	background-color: $gameboyscreencolor;
-	color: $gameboybodycolor;
-	width: 100px;
-	text-transform: uppercase;
-	font-size: .5rem;
-	border-radius: 7px;
-}
-
-.dpadrectangle
-{
-	background-color: $backgroundcolor;
-	position: absolute;
-	width: 100px;
-	height: 33px;
-	bottom: 25%;
-
+	font-size: 1.2rem;
 }
 
 #gameboy
 {
 	background-color: $gameboybodycolor;
+	color: $gameboyscreencolor;
+	width: 100%;
 	height: 100vh;
-	border-radius: 20px;
-}
+	max-height: 550px;
+	border-radius: 10px;
 
-#screen
-{
-	background-color: $gameboyscreencolor;
-	height: 300px;
-	box-shadow: inset 0 0 10px 0 black;
-	white-space: pre;
-	overflow-x: hidden;
-	overflow-y: scroll;
-
-	h1
+	#screen-container
 	{
-		color: $gameboybodycolor;
-		font-size: 1.3rem;
-		line-height: 3rem;
-	}
-}
+		width: 100%;
+		height: 50%;
+		padding: 1rem;
 
-@media (min-width: 576px) // landscape phones (sm)
-{
-	label, output
-	{
-		font-size: .75rem;
-	}
-
-	#screen
-	{
-		h1
+		#screen
 		{
-			font-size: 1rem;
+			background-color: $gameboyscreencolor;
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+			padding: 1rem;
+			border-radius: 5px;
+
+			h1
+			{
+				color: $gameboybodycolor;
+				font-size: 1.8rem;
+			}
 		}
 	}
-}
 
-@media (min-width: 768px) // tablets (md)
-{
-	label, output
+	.button-container
 	{
-		font-size: 1.3rem;
-	}
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		padding: 0 1rem;
 
-	.btn
-	{
-		font-size: .6rem;
-		width: 100px;
-	}
-
-	.dpadrectangle
-	{
-		width: 120px;
-	}
-
-	#gameboy
-	{
-		height: 850px !important;
-		box-shadow: -20px 0px 0px 0px $gameboybodyaccentcolor;
-	}
-
-	#screen
-	{
-		height: 400px;
-
-		h1
+		.p-container
 		{
-			font-size: 1.8rem;
-			line-height: 4rem;
+			height: 100%;
+			width: 100px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin: 0 1.3rem;
 		}
-	}
-}
 
-@media (min-width: 992px) // landscape tablets, small desktops (lg)
-{
-	label, output
-	{
-		font-size: 1rem;
-	}
-
-	.dpadrectangle
-	{
-		width: 110px;
-	}
-
-	#gameboy
-	{
-		height: 710px !important;
-	}
-
-	#screen
-	{
-		height: 350px;
-
-		h1
+		.button
 		{
-			font-size: 1.3rem;
-			line-height: 3.7rem;
+			background-color: $gameboyscreencolor;
+			$size: 45px;
+			width: $size;
+			height: $size;
+			border-radius: 50%;
 		}
-	}
-}
-
-@media (min-width: 1200px) // desktops (xl)
-{
-	label, output
-	{
-		font-size: .8rem;
-	}
-
-	.dpadrectangle
-	{
-		width: 90px;
-		height: 25px;
-	}
-
-	.btn
-	{
-		font-size: .6rem;
-	}
-
-	#gameboy
-	{
-		width: 100px !important;
-		height: 580px !important;
-	}
-
-	#screen
-	{
-		height: 260px;
 	}
 }
