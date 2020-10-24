@@ -1,6 +1,6 @@
 // Set Variables
 const synth = new Tone.PolySynth().toDestination();
-synth.set({ volume: -5 });
+synth.set({ volume: -15 });
 let part;
 
 // Generate the progression, display it, then play it
@@ -19,7 +19,7 @@ async function presentChord(isReplay)
 		const numChords = $('#numberofchordsrange').val();
 		const previewOctave = $('#octaverange').val();
 		const isMajorKey = $('#majorminorrange').val() == 1;
-		const noteDuration = $('#notedurationoutput').text();
+		const bpm = $('#bpmrange').val();
 
 		// Generate progression using ChordGenerator.js
 		const generator = new ChordGenerator();
@@ -33,9 +33,11 @@ async function presentChord(isReplay)
 		{
 			array.forEach((note, noteIndex) =>
 			{
-				synthProgression.push({ time: i / (parseInt(noteDuration) / 2), note: note + previewOctave });
+				synthProgression.push({ time: i / (bpm / 60), note: note + previewOctave });
 			});
 		});
+
+		console.log(synthProgression);
 
 		// Set text
 		let outputString = '';
@@ -47,9 +49,11 @@ async function presentChord(isReplay)
 		$('#screen h1').html(outputString);
 
 		// Set up part to play
+		Tone.Transport.bpm.value = bpm;
 		part = await new Tone.Part((time, value) =>
 		{
-			synth.triggerAttackRelease(value.note, noteDuration, time);
+			console.log(value);
+			synth.triggerAttackRelease(value.note, '4n', time);
 		}, synthProgression).start(0);
 	}
 
@@ -74,18 +78,16 @@ $('#replaybutton').click(() =>
 $('#numberofchordsrange').on('input', () =>
 {
 	const range = $('#numberofchordsrange');
-	const value = range.val();
 	const output = $('#numberofchordsoutput');
-	output.text(value);
+	output.text(range.val());
 });
 
 // Set text of label for octaverange slider on change
 $('#octaverange').on('input', () =>
 {
 	const range = $('#octaverange');
-	const value = range.val();
 	const output = $('#octaveoutput');
-	output.text(value);
+	output.text(range.val());
 });
 
 // Set text of label for majorminorrange slider on change
@@ -97,11 +99,10 @@ $('#majorminorrange').on('input', () =>
 	output.text(value);
 });
 
-// Set text of label for notedurationrange slider on change
-$('#notedurationrange').on('input', () =>
+// Set text of label for BPM slider on change
+$('#bpmrange').on('input', () =>
 {
-	const range = $('#notedurationrange');
-	const value = Math.pow(2, range.val()) + 'n';
-	const output = $('#notedurationoutput');
-	output.text(value);
+	const range = $('#bpmrange');
+	const output = $('#bpmoutput');
+	output.text(range.val());
 });

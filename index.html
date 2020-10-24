@@ -3,40 +3,79 @@
 <head>
 	<meta charset='utf-8' />
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-	<!-- <link rel='stylesheet' href='bootstrap/css/bootstrap.min.css' /> -->
 	<link rel='stylesheet' href='main.min.css' />
 	<title>Chord Progression Generator</title>
 </head>
 <body class='d-flex justify-content-center align-items-center'>
 
 	<div id='gameboy'>
+		<!-- Screen -->
 		<div id='screen-container'>
 			<div id='screen'>
-				<h1>asdfasdf</h1>
+				<h1>f#m: f# a c#<br />bm: b d f#<br />g#dim: g# b d<br />bm: b d f#</h1>
 			</div>
 		</div>
-		<div class='button-container'>
-			<div class='p-container'>
-				<p>Generate</p>
+		<div id='buttons'>
+			<!-- Replay button -->
+			<div class='button-row'>
+				<div class='text-container'>
+					<p>Replay</p>
+				</div>
+				<div id='replaybutton' class='button'></div>
 			</div>
-			<div id='generatebutton' class='button'></div>
-		</div>
-		<div class='button-container'>
-			<div class='p-container'>
-				<p>Replay</p>
+			<!-- Generate button -->
+			<div class='button-row'>
+				<div class='text-container'>
+					<p>Generate</p>
+				</div>
+				<div id='generatebutton' class='button'></div>
 			</div>
-			<div id='replaybutton' class='button' style='margin-right: 3.5rem;'></div>
 		</div>
-		<div class='slider-container'>
-			<div class='p-container'>
-				<p>Nmbr of Chords:</p>
-				<output id='numberofchordsoutput'>4</output>
+		<div id='inputs'>
+			<!-- Number of chords -->
+			<div class='slider-row'>
+				<div class='text-container'>
+					<p>Nmbr of Chords:</p>
+				</div>
+				<div class='text-container'>
+					<p id='numberofchordsoutput' class='output'>4</p>
+				</div>
+				<input id='numberofchordsrange' class='slider' type='range' min='3' max='7' value='4' />
+			</div>
+			<!-- Preview octave -->
+			<div class='slider-row'>
+				<div class='text-container'>
+					<p>Preview Octave:</p>
+				</div>
+				<div class='text-container'>
+					<p id='octaveoutput' class='output'>4</p>
+				</div>
+				<input id='octaverange' class='slider' type='range' min='2' max='7' value='4' />
+			</div>
+			<!-- Major / minor -->
+			<div class='slider-row'>
+				<div class='text-container'>
+					<p>Major/Minor:</p>
+				</div>
+				<div class='text-container'>
+					<p id='majorminoroutput' class='output'>Major</p>
+				</div>
+				<input id='majorminorrange' class='slider' type='range' min='1' max='2' value='0' />
+			</div>
+			<!-- BPM -->
+			<div class='slider-row'>
+				<div class='text-container'>
+					<p>BPM:</p>
+				</div>
+				<div class='text-container'>
+					<p id='bpmoutput' class='output'>200</p>
+				</div>
+				<input id='bpmrange' class='slider' type='range' min='50' max='700' step='50' value='200' />
 			</div>
 		</div>
 	</div>
 
 	<script src='jquery.min.js'></script>
-	<!-- <script src='bootstrap/js/bootstrap.bundle.min.js'></script> -->
 	<script src='Tone.js'></script>
 	<script src='ChordGenerator.js'></script>
 	<script src='main.js'></script>
