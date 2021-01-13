@@ -1,105 +1,63 @@
 // Set Variables
-const synth = new Tone.PolySynth().toDestination();
-synth.set({ volume: -15 });
-let part;
+const KEYS = ["Random", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+const GENERATOR = new ChordGenerator();
+const SYNTH = new Tone.PolySynth(Tone.Synth).toDestination();
+let lastProgression;
 
-// Generate the progression, display it, then play it
-async function presentChord(isReplay)
+async function playTones(progression)
 {
-	if (!part && isReplay) return; // If replaying with no data
-
-	// Reset
-	Tone.Transport.stop();
-	if (part && !isReplay)
-		part.clear();
-
-	if (!isReplay)
+	for (let i = 0; i < progression.length; ++i)
 	{
-		// Get inputs
-		const numChords = $('#numberofchordsrange').val();
-		const previewOctave = $('#octaverange').val();
-		const isMajorKey = $('#majorminorrange').val() == 1;
-		const bpm = $('#bpmrange').val();
-
-		// Generate progression using ChordGenerator.js
-		const generator = new ChordGenerator();
-		const progression = isMajorKey ?
-							generator.makeMajorProgression(numChords) :
-							generator.makeMinorProgression(numChords);
-
-		// Convert to format Tone.js can understand
-		let synthProgression = [];
-		progression.chords.map((chord) => chord = chord.notes).forEach((array, i) =>
-		{
-			array.forEach((note, noteIndex) =>
-			{
-				synthProgression.push({ time: i / (bpm / 60), note: note + previewOctave });
-			});
-		});
-
-		// Set text
-		let outputString = '';
-		for (chordIndex in progression.chords)
-		{
-			const chord = progression.chords[chordIndex];
-			outputString += `<strong>${chord.name}</strong>: ${chord.notes.join(' ')}\r\n`;
-		}
-		$('#screen h1').html(outputString);
-
-		// Set up part to play
-		Tone.Transport.bpm.value = bpm;
-		part = await new Tone.Part((time, value) =>
-		{
-			synth.triggerAttackRelease(value.note, '4n', time);
-		}, synthProgression).start(0);
+		SYNTH.triggerAttackRelease(progression[i], "4n", Tone.now() + Tone.Time("4n").toSeconds() * i);
 	}
-
-	// Play sound
-	await Tone.start();
-	Tone.Transport.start();
 }
 
 // Generate on click
-$('#generatebutton').click(() =>
+$("#generatebutton").click(() =>
 {
-	presentChord(false);
+	// get values
+	const isMajor = $("#majorminorrange").val() == 0;
+	const key = $("#keyoutput").text();
+
+	// get progression and set last progression
+	const progression = GENERATOR.makeProgression(isMajor, key);
+	lastProgression = GENERATOR.convertProgressionToSynthChords(progression);
+
+	// set text
+	$("#screen h1").text(progression.join(" "));
+
+	// play tones
+	playTones(lastProgression);
 });
 
 // Replay on click
-$('#replaybutton').click(() =>
+$("#replaybutton").click(() =>
 {
-	presentChord(true);
-});
-
-// Set text of label for numberofchordsrange slider on change
-$('#numberofchordsrange').on('input', () =>
-{
-	const range = $('#numberofchordsrange');
-	const output = $('#numberofchordsoutput');
-	output.text(range.val());
-});
-
-// Set text of label for octaverange slider on change
-$('#octaverange').on('input', () =>
-{
-	const range = $('#octaverange');
-	const output = $('#octaveoutput');
-	output.text(range.val());
+	playTones(lastProgression);
 });
 
 // Set text of label for majorminorrange slider on change
-$('#majorminorrange').on('input', () =>
+$("#majorminorrange").on("input", () =>
 {
-	const range = $('#majorminorrange');
-	const value = (range.val() == 1) ? 'Major' : 'Minor';
-	const output = $('#majorminoroutput');
-	output.text(value);
+	const value = ($("#majorminorrange").val() == 0) ? "Major" : "Minor";
+	$("#majorminoroutput").text(value);
+
+	// if major, convert to minor if not already.
+	// if minor, convert to major if not already.
+	const note = $("#keyoutput").text();
+	if (value == "Major" && !GENERATOR.isNoteMajor(note))
+	{
+		$("#keyoutput").text(GENERATOR.convertMinorToMajor(note));
+	}
+	else if (value == "Minor" && GENERATOR.isNoteMajor(note))
+	{
+		$("#keyoutput").text(GENERATOR.convertMajorToMinor(note));
+	}
 });
 
-// Set text of label for BPM slider on change
-$('#bpmrange').on('input', () =>
+// Set text of label for key slider on change
+$("#keyrange").on("input", () =>
 {
-	const range = $('#bpmrange');
-	const output = $('#bpmoutput');
-	output.text(range.val());
+	const isMajor = $("#majorminorrange").val() == 0;
+	$("#keyoutput").text(KEYS[$("#keyrange").val()] + (isMajor ? "" : "m"));
 });

@@ -52,15 +52,12 @@ body
 			background-color: $gameboyscreencolor;
 			display: flex;
 			justify-content: center;
+			align-items: center;
 			width: 100%;
 			height: 100%;
 			padding: 1rem;
 			border-radius: 5px;
 			box-shadow: inset 0 0 20px rgba(0, 0, 0, .7);
-			overflow-x: none;
-			overflow-y: scroll;
-			-ms-overflow-style: none;
-			scrollbar-width: none;
 
 			h1
 			{
@@ -145,9 +142,9 @@ body
 
 			.output
 			{
+				min-width: 6ch;
 				color: $gameboyscreencolor;
 				margin-left: 1rem;
-				margin-right: .3rem;
 				font-size: .8rem;
 			}
 

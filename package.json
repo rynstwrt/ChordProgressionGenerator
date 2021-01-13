@@ -1,0 +1,22 @@
+{
+  "name": "chordprogressiongenerator",
+  "version": "1.0.0",
+  "description": "https://rynstwrt.github.io/ChordProgressionGenerator/",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rynstwrt/ChordProgressionGenerator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rynstwrt/ChordProgressionGenerator/issues"
+  },
+  "homepage": "https://github.com/rynstwrt/ChordProgressionGenerator#readme",
+  "dependencies": {
+    "tone": "^14.7.77"
+  }
+}

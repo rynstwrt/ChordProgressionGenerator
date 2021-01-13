@@ -1,203 +1,162 @@
-// Chord Class
-class Chord
-{
-	constructor(name, notes)
-	{
-		this.name = name;
-		this.notes = notes;
-	}
-}
-
-// Progression Class
-class Progression
-{
-	constructor(arrayOfChords)
-	{
-		this.chords = arrayOfChords;
-	}
-}
-
-// Chord Generator Class
 class ChordGenerator
 {
-	// Set class variables
-	constructor()
-	{
-		this.cmajor = new Chord('C', ['C', 'E', 'G']);
-		this.csharpmajor = new Chord('C#', ['C#', 'E#', 'G#']);
-		this.dflatmajor = new Chord('Db', ['Db', 'F', 'Ab']);
-		this.dmajor = new Chord('D', ['D', 'F#', 'A']);
-		this.eflatmajor = new Chord('Eb', ['Eb', 'G', 'Bb']);
-		this.emajor = new Chord('E', ['E', 'G#', 'B']);
-		this.fflatmajor = new Chord('Fb', ['Fb', 'Ab', 'Cb']);
-		this.fmajor = new Chord('F', ['F', 'A', 'C']);
-		this.fsharpmajor = new Chord('F#', ['F#', 'A#', 'C#']);
-		this.gflatmajor = new Chord('Gb', ['Gb', 'Bb', 'Db']);
-		this.gmajor = new Chord('G', ['G', 'B', 'D']);
-		this.gsharpmajor = new Chord('G#', ['G#', 'B#', 'D#']);
-		this.aflatmajor = new Chord('Ab', ['Ab', 'C', 'Eb']);
-		this.amajor = new Chord('A', ['A', 'C#', 'E']);
-		this.bflatmajor = new Chord('Bb', ['Bb', 'D', 'F']);
-		this.bmajor = new Chord('B', ['B', 'D#', 'F#']);
-		this.cflatmajor = new Chord('Cb', ['Cb', 'Eb', 'Gb']);
+    MAJORPATTERN = [1, 0, 0, 1, 1, 0, 2]; // 0 is minor, 1 is major, 2 is dim
+    MINORPATTERN = [0, 2, 1, 0, 0, 1, 1];
 
-		this.cminor = new Chord('Cm', ['C', 'Eb', 'G']);
-		this.csharpminor = new Chord('C#m', ['C#', 'E', 'G#']);
-		this.dflatminor = new Chord('Dbm', ['Db', 'Fb', 'Ab']);
-		this.dminor = new Chord('Dm', ['D', 'F', 'A']);
-		this.dsharpminor = new Chord('D#m', ['D#', 'F#', 'A#']);
-		this.eflatminor = new Chord('Ebm', ['Eb', 'Gb', 'Bb']);
-		this.eminor = new Chord('Em', ['E', 'G', 'B']);
-		this.esharpminor = new Chord('E#m', ['E#', 'G#', 'B#']);
-		this.fminor = new Chord('Fm', ['F', 'Ab', 'C']);
-		this.fsharpminor = new Chord('F#m', ['F#', 'A', 'C#']);
-		this.gminor = new Chord('Gm', ['G', 'Bb', 'D']);
-		this.gsharpminor = new Chord('G#m', ['G#', 'B', 'D#']);
-		this.aflatminor = new Chord('Abm', ['Ab', 'B', 'Eb']);
-		this.aminor = new Chord('Am', ['A', 'C', 'E']);
-		this.asharpminor = new Chord('A#m', ['A#', 'C#', 'E#']);
-		this.bflatminor = new Chord('Bbm', ['Bb', 'Db', 'F']);
-		this.bminor = new Chord('Bm', ['B', 'D', 'F#']);
+    // create constants for each major scale
+    MAJORSCALES = {
+        "C": ["C", "D", "E", "F", "G", "A", "B"],
+        "D": ["D", "E", "F#", "G", "A", "B", "C#"],
+        "E": ["E", "F#", "G#", "A", "B", "C#", "D#"],
+        "F": ["F", "G", "A", "A#", "C", "D", "E"],
+        "G": ["G", "A", "B", "C", "D", "E", "F#"],
+        "A": ["A", "B", "C#", "D", "E", "F#", "G#"],
+        "B": ["B", "C#", "D#", "E", "F#", "G#", "A#"],
+        "C#": ["C#", "D#", "F", "F#", "G#", "A#", "C"],
+        "D#": ["D#", "F", "G", "G#", "A#", "C", "D"],
+        "F#": ["F#", "G#", "A#", "B", "C#", "D#", "F"],
+        "G#": ["G#", "A#", "C", "C#", "D#", "F", "G"],
+        "A#": ["A#", "C", "D", "D#", "F", "G", "A"]
+    };
 
-		this.cdim = new Chord('Cdim', ['C', 'Eb', 'Gb']);
-		this.csharpdim = new Chord('C#dim', ['C#', 'E', 'G']);
-		this.ddim = new Chord('Ddim', ['D', 'F', 'Ab']);
-		this.dsharpdim = new Chord('D#dim', ['D#', 'F#', 'A']);
-		this.eflatdim = new Chord('Ebdim', ['Eb', 'Gb', 'A']);
-		this.edim = new Chord('Edim', ['E', 'G', 'Bb']);
-		this.esharpdim = new Chord('E#dim', ['E#', 'G#', 'B']);
-		this.fdim = new Chord('Fdim', ['F', 'Ab', 'Cb']);
-		this.fsharpdim = new Chord('F#dim', ['F#', 'A', 'C']);
-		this.gdim = new Chord('Gdim', ['G', 'Bb', 'Db']);
-		this.gsharpdim = new Chord('G#dim', ['G#', 'B', 'D']);
-		this.aflatdim = new Chord('Abdim', ['Ab', 'Cb', 'D']);
-		this.adim = new Chord('Adim', ['A', 'C', 'Eb']);
-		this.bflatdim = new Chord('Bbdim', ['Bb', 'Db', 'Fb']);
-		this.bdim = new Chord('Bdim', ['B', 'D', 'F']);
-		this.bsharpdim = new Chord('B#dim', ['B#', 'D#', 'F#']);
+    // create constants for each minor scale
+    MINORSCALES = {
+        "Cm": ["C", "D", "D#", "F", "G", "G#", "A#"],
+        "Dm": ["D", "E", "F", "G", "A", "A#", "C"],
+        "Em": ["E", "F#", "G", "A", "B", "C", "D"],
+        "Fm": ["F", "G", "G#", "A#", "C", "C#", "D#"],
+        "Gm": ["G", "A", "A#", "C", "D", "D#", "F"],
+        "Am": ["A", "B", "C", "D", "E", "F", "G"],
+        "Bm": ["B", "C#", "D", "E", "F#", "G", "A"],
+        "C#m": ["C#", "D#", "E", "F#", "G#", "A", "B"],
+        "D#m": ["D#", "F", "F#", "G#", "A#", "B", "C#"],
+        "F#m": ["F#", "G#", "A", "B", "C#", "D", "E"],
+        "G#m": ["G#", "A#", "B", "C#", "D#", "E", "F#"],
+        "A#m": ["A#", "C", "C#", "D#", "F", "F#", "G#"]
+    };
 
-		this.keyamajor = [this.amajor, this.bminor, this.csharpminor, this.dmajor, this.emajor, this.fsharpminor, this.gsharpdim];
-		this.keybmajor = [this.bmajor, this.csharpminor, this.dsharpminor, this.emajor, this.fsharpmajor, this.gsharpminor, this.bflatdim];
-		this.keycmajor = [this.cmajor, this.dminor, this.eminor, this.fmajor, this.gmajor, this.aminor, this.bdim];
-		this.keydmajor = [this.dmajor, this.eminor, this.fsharpminor, this.gmajor, this.amajor, this.bminor, this.csharpdim];
-		this.keyemajor = [this.emajor, this.fsharpminor, this.gsharpminor, this.amajor, this.bmajor, this.csharpminor, this.dsharpdim];
-		this.keyfmajor = [this.fmajor, this.gminor, this.aminor, this.bflatmajor, this.cmajor, this.dminor, this.edim];
-		this.keygmajor = [this.gmajor, this.aminor, this.bminor, this.cmajor, this.dmajor, this.eminor, this.fsharpdim];
+    CHORDS = {
+        "C": ["C", "E", "G"],
+        "D": ["D", "F#", "A"],
+        "E": ["E", "G#", "B"],
+        "F": ["F", "A", "C"],
+        "G": ["G", "B", "D"],
+        "A": ["A", "B#", "E"],
+        "B": ["B", "D#", "F#"],
+        "C#": ["C#", "F", "G#"],
+        "D#": ["D#", "G", "A#"],
+        "F#": ["F#", "A#", "C#"],
+        "G#": ["G#", "C", "D#"],
+        "A#": ["A#", "D", "F"],
+        "Cm": ["C", "D#", "G"],
+        "Dm": ["D", "F", "A"],
+        "Em": ["E", "G", "B"],
+        "Fm": ["F", "G#", "C"],
+        "Gm": ["G", "A#", "D"],
+        "Am": ["A", "C", "E"],
+        "Bm": ["B", "D", "F#"],
+        "C#m": ["C#", "E", "G#"],
+        "D#m": ["D#", "F#", "A#"],
+        "F#m": ["F#", "A", "C#"],
+        "G#m": ["G#", "B", "D#"],
+        "A#m": ["A#", "C#", "F"],
+        "Cdim": ["C", "D#", "F#"],
+        "Ddim": ["D", "F", "G#"],
+        "Edim": ["E", "G", "A#"],
+        "Fdim": ["F", "G#", "B"],
+        "Gdim": ["G", "A#", "C#"],
+        "Adim": ["A", "C", "D#"],
+        "Bdim": ["B", "D", "F"],
+        "C#dim": ["C#", "E", "G"],
+        "D#dim": ["D#", "F#", "A"],
+        "F#dim": ["F#", "A", "C"],
+        "G#dim": ["G#", "B", "D"],
+        "A#dim": ["A#", "C#", "E"]
+    }
 
-		this.keyaminor = [this.aminor, this.bdim, this.cmajor, this.dminor, this.eminor, this.fmajor, this.gmajor];
-		this.keybminor = [this.bminor, this.csharpdim, this.dmajor, this.eminor, this.fsharpminor, this.gmajor, this.amajor];
-		this.keycminor = [this.cminor, this.ddim, this.eflatmajor, this.fminor, this.gminor, this.aflatmajor, this.bflatmajor];
-		this.keydminor = [this.dminor, this.edim, this.fmajor, this.gminor, this.aminor, this.bflatmajor, this.cmajor];
-		this.keyeminor = [this.eminor, this.fsharpdim, this.gmajor, this.aminor, this.bminor, this.cmajor, this.dmajor];
-		this.keyfminor = [this.fminor, this.gdim, this.aflatmajor, this.bflatminor, this.cminor, this.dflatmajor, this.eflatmajor];
-		this.keygminor = [this.gminor, this.adim, this.bflatmajor, this.cminor, this.dminor, this.eflatmajor, this.fmajor];
-	}
+    // get scale for that key
+    // start on 1
+    // pick random chord between 1 and 7
+    // pick random chord between 1 and 7
+    // end on 4 or 5
+    makeProgression(isMajor, key)
+    {
+        let scale;
+        if (key == "Random")
+        {
+            if (isMajor) scale = this.MAJORSCALES[Object.keys(this.MAJORSCALES)[Math.floor(Math.random() * Object.keys(this.MAJORSCALES).length)]];
+            else scale = this.MINORSCALES[Object.keys(this.MINORSCALES)[Math.floor(Math.random() * Object.keys(this.MINORSCALES).length)]];
+        }
+        else
+        {
+            if (isMajor) scale = this.MAJORSCALES[key];
+            else scale = this.MINORSCALES[key];
+        }
 
-	// Return a Progression class instance of a major progression
-	makeMajorProgression(numChords)
-	{
-		const keys = [this.keyamajor, this.keybmajor, this.keycmajor, this.keydmajor, this.keyemajor, this.keyfmajor, this.keygmajor];
-		const key = keys[Math.floor(Math.random() * keys.length)];
+        const indexes = [];
+        indexes.push(0);
+        indexes.push(Math.floor(Math.random() * 6));
+        indexes.push(Math.floor(Math.random() * 6));
+        indexes.push(Math.random() > .5 ? 3 : 4);
 
-		let arrayOfChords = [];
-		for (let i = numChords - 1; i >= 0; --i)
-		{
-			if (arrayOfChords.length === 0)
-			{
-				arrayOfChords.push(Math.floor(Math.random() * (keys.length - 1)) + 1);
-				continue;
-			}
-			const lastChord = arrayOfChords[arrayOfChords.length - 1];
+        const progression = [];
 
-			let possibleDestinations;
-			switch (lastChord)
-			{
-				case 1:
-				 	possibleDestinations = [2, 3, 4, 5, 6, 7];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-				case 2:
-					possibleDestinations = [7, 5];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-				case 3:
-					possibleDestinations = [6, 4, 2];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-				case 4:
-					possibleDestinations = [2, 7, 5, 1];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-				case 5:
-					possibleDestinations = [1];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-				case 6:
-					possibleDestinations = [4, 2];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-				case 7:
-					possibleDestinations = [2, 3, 4, 5, 6, 7];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-			}
-		}
+        for (let i = 0; i < indexes.length; ++i)
+        {
+            const index = indexes[i];
+            const note = scale[index];
+            const type = (isMajor) ? this.MAJORPATTERN[index] : this.MINORPATTERN[index];
 
-		arrayOfChords = arrayOfChords.map((chord) => chord = key[chord - 1]);
-		return new Progression(arrayOfChords);
-	}
+            switch (type)
+            {
+                case 0:
+                    progression.push(note + "m");
+                    break;
+                case 1:
+                    progression.push(note);
+                    break;
+                case 2:
+                    progression.push(note + "dim");
+                    break;
+            }
+        }
 
-	// Return a Progression class instance of a minor progression
-	makeMinorProgression(numChords)
-	{
-		const keys = [this.keyaminor, this.keybminor, this.keycminor, this.keydminor, this.keyeminor, this.keyfminor, this.keygminor];
-		const key = keys[Math.floor(Math.random() * keys.length)];
+        return progression;
+    }
 
-		let arrayOfChords = [];
-		for (let i = numChords - 1; i >= 0; --i)
-		{
-			if (arrayOfChords.length === 0)
-			{
-				arrayOfChords.push(Math.floor(Math.random() * (keys.length - 1)) + 1);
-				continue;
-			}
-			const lastChord = arrayOfChords[arrayOfChords.length - 1];
+    // get [C, G, C, G] and turn it into [[c4 e4 g4], [g4 b4 d4], [c4 e4 g4], [g4 b4 d4]].
+    convertProgressionToSynthChords(progression)
+    {
+        const synthProgression = [];
+        for (let noteIndex in progression)
+        {
+            const chord = this.CHORDS[progression[noteIndex]];
+            const newChord = [];
 
-			let possibleDestinations;
-			switch (lastChord)
-			{
-				case 1:
-					possibleDestinations = [2, 3, 4, 5, 6, 7];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-				case 2:
-					possibleDestinations = [7, 5];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-				case 3:
-					possibleDestinations = [6, 4, 2];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-				case 4:
-					possibleDestinations = [2, 7, 5, 1];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-				case 5:
-					possibleDestinations = [1, 6];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-				case 6:
-					possibleDestinations = [4, 2];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-				case 7:
-					possibleDestinations = [3];
-					arrayOfChords.push(possibleDestinations[Math.floor(Math.random() * possibleDestinations.length)]);
-					break;
-			}
-		}
+            for (let noteIndex2 in chord)
+            {
+                newChord.push(chord[noteIndex2] + "4");
+            }
 
-		arrayOfChords = arrayOfChords.map((chord) => chord = key[chord - 1]);
-		return new Progression(arrayOfChords);
-	}
+            synthProgression.push(newChord);
+        }
+
+        return synthProgression;
+    }
+
+    isNoteMajor(note)
+    {
+        return (note != "Random" && note.substr(note.length - 1) != "m");
+    }
+
+    convertMajorToMinor(note)
+    {
+        return note + "m";
+    }
+
+    convertMinorToMajor(note)
+    {
+        return note.substr(0, note.length - 1);
+    }
+
 }

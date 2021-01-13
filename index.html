@@ -3,7 +3,7 @@
 <head>
 	<meta charset='utf-8' />
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-	<link rel='stylesheet' href='main.min.css' />
+	<link rel='stylesheet' type="text/css" href='main.css' />
 	<title>Chord Progression Generator</title>
 </head>
 <body class='d-flex justify-content-center align-items-center'>
@@ -12,7 +12,7 @@
 		<!-- Screen -->
 		<div id='screen-container'>
 			<div id='screen'>
-				<h1>f#m: f# a c#<br />bm: b d f#<br />g#dim: g# b d<br />bm: b d f#</h1>
+				<h1></h1>
 			</div>
 		</div>
 		<div id='buttons'>
@@ -32,52 +32,35 @@
 			</div>
 		</div>
 		<div id='inputs'>
-			<!-- Number of chords -->
-			<div class='slider-row'>
-				<div class='text-container'>
-					<p>Nmbr of Chords:</p>
-				</div>
-				<div class='text-container'>
-					<p id='numberofchordsoutput' class='output'>4</p>
-				</div>
-				<input id='numberofchordsrange' class='slider' type='range' min='3' max='7' value='4' />
-			</div>
-			<!-- Preview octave -->
-			<div class='slider-row'>
-				<div class='text-container'>
-					<p>Preview Octave:</p>
-				</div>
-				<div class='text-container'>
-					<p id='octaveoutput' class='output'>4</p>
-				</div>
-				<input id='octaverange' class='slider' type='range' min='2' max='7' value='4' />
-			</div>
 			<!-- Major / minor -->
 			<div class='slider-row'>
 				<div class='text-container'>
-					<p>Major/Minor:</p>
+					<p>Type:</p>
 				</div>
 				<div class='text-container'>
 					<p id='majorminoroutput' class='output'>Major</p>
 				</div>
-				<input id='majorminorrange' class='slider' type='range' min='1' max='2' value='0' />
+				<input id='majorminorrange' class='slider' type='range' min='0' max='1' value='0' />
 			</div>
-			<!-- BPM -->
+			<!-- Key -->
 			<div class='slider-row'>
 				<div class='text-container'>
-					<p>BPM:</p>
+					<p>Key:</p>
 				</div>
 				<div class='text-container'>
-					<p id='bpmoutput' class='output'>200</p>
+					<p id='keyoutput' class='output'>Random</p>
 				</div>
-				<input id='bpmrange' class='slider' type='range' min='50' max='700' step='50' value='200' />
+				<!-- random, C, D, E, F, G, A, B, C#/Db, D#/Eb, F#/Gb, G#/Ab, A#/Bb  -->
+				<!-- random, Cm,Dm,Em,Fm,Gm,Am,Bm,C#m/Ddm,D#m/Ebm,F#m/Gbm, G#m/Abm, A#m/Bbm -->
+				<!-- const KEYS = ["Random", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]; -->
+				<input id='keyrange' class='slider' type='range' min='0' max='12' value='0' />
 			</div>
 		</div>
 	</div>
 
 	<script src='jquery.min.js'></script>
-	<script src='Tone.js'></script>
 	<script src='ChordGenerator.js'></script>
+	<script src='node_modules/tone/build/Tone.js'></script>
 	<script src='main.js'></script>
 </body>
 </html>
