@@ -33,7 +33,7 @@ $("#generatebutton").click(() =>
 // Replay on click
 $("#replaybutton").click(() =>
 {
-	playTones(lastProgression);
+	if (lastProgression) playTones(lastProgression);
 });
 
 // Set text of label for majorminorrange slider on change
